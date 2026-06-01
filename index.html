@@ -3,29 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZolTeach <br>
-
-Műszaki Képzési Akadémia</title>
+    <title>ZolTeach Műszaki Képzési Akadémia</title>
     
-    <!-- Beemeljük a lágyabb, lekerekített formájú prémium betűtípusokat -->
+    <!-- Google Fonts betűtípusok (Ubuntu és Exo 2) -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Exo+2:ital,wght@0,600;0,700;1,600&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Exo+2:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        /* A fő szöveg betűtípusa az Ubuntu lesz, ami nagyon lágy és könnyen olvasható */
         body { 
             font-family: 'Ubuntu', sans-serif; 
             background-color: #0b0d10; 
-            color: #f3f4f6; 
+            color: #e5e7eb; /* Finomabb, lágyabb törtfehér szövegszín, hogy ne bántsa a szemet */
         }
         
+        /* --- HERO SZAKASZ --- */
         .hero {
-            background: linear-gradient(rgba(11, 13, 16, 0.82), rgba(11, 13, 16, 0.82)), 
+            background: linear-gradient(rgba(11, 13, 16, 0.85), rgba(11, 13, 16, 0.85)), 
                         url('zolteach-hatterkep-jpeg.jpeg') no-repeat center center/cover;
-            min-height: 100vh;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -34,64 +32,132 @@ Műszaki Képzési Akadémia</title>
             padding: 40px 20px;
         }
 
-        /* A főcím az Exo 2 típust kapja, ami modern, de lekerekített sarkú és barátságos */
         h1 { 
             font-family: 'Exo 2', sans-serif; 
             font-size: 3.5rem; 
             font-weight: 700;
             margin-bottom: 24px; 
             color: #ffffff; 
-            letter-spacing: 1px;
             line-height: 1.2;
         }
         
-        /* Itt állítjuk be a kiemelt rész színét (A régi font color helyett) */
         h1 span { 
-            color: #ffb703; 
+            color: #ffb703; /* Meleg sárga kiemelés */
         }
 
-        p { 
-            font-size: 1.4rem; 
+        .hero p { 
+            font-size: 1.35rem; 
             max-width: 900px; 
             margin-bottom: 48px; 
-            color: #d1d5db; 
+            color: #9ca3af; /* Tompább szürke a jobb olvashatóságért a sötét háttéren */
             line-height: 1.8; 
-            font-weight: 400;
         }
         
         .btn {
             font-family: 'Exo 2', sans-serif;
             background-color: #ffb703;
             color: #0b0d10;
-            padding: 18px 40px;
-            font-size: 1.3rem;
+            padding: 16px 36px;
+            font-size: 1.25rem;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 8px; /* Lágyabb, kerekített sarkok a gombnak is */
+            border-radius: 8px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 183, 3, 0.2);
         }
         .btn:hover { 
             background-color: #ffffff; 
-            color: #0b0d10;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* --- MODULOK SZAKASZ (A 3 ÚJ KÁRTYA) --- */
+        .modules-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .modules-section h2 {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #ffffff;
+        }
+
+        .grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap; /* Mobilbarát megjelenéshez, ha szűk a kijelző */
+        }
+
+        .card {
+            background-color: #15181e; /* Sötétszürke kártya háttér, ami illik a laboros képhez */
+            border: 1px solid #222731;
+            border-radius: 12px;
+            padding: 40px 30px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 360px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ffb703; /* Ha rásiklik az egér, finoman besárgul a keret */
+        }
+
+        .card h3 {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.6rem;
+            color: #ffb703;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            color: #9ca3af;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
 
+    <!-- Hero szakasz -->
     <section class="hero">
-        <!-- A <br> jelekkel pontosan ott törjük meg a sort, ahol logikus -->
         <h1>ZolTeach <br><span>Műszaki Képzési Akadémia</span></h1>
-        
         <p>
             Gyakorlatorientált ipari és karbantartói tréningek vállalatok számára. <br>
             Fejlessze csapata diagnosztikai hibakeresési logikáját valós rendszereken, <br>
             ezzel minimálisra csökkentve a gyártási állásidőt.
         </p>
-        
         <a href="#" class="btn">Vállalati ajánlatkérés</a>
+    </section>
+
+    <!-- ÚJ: 3-hasábos képzési modulok szakasz -->
+    <section class="modules-section">
+        <h2>Elérhető Szakmai Modulok</h2>
+        
+        <div class="grid">
+            <!-- 1. Kártya -->
+            <div class="card">
+                <h3>🔍 Diagnosztika</h3>
+                <p>A strukturált hibakeresési logika fejlesztése. Célunk a felesleges szétszerelések elkerülése és a szisztematikus folyamatok elsajátítása valós ipari rendszereken.</p>
+            </div>
+
+            <!-- 2. Kártya -->
+            <div class="card">
+                <h3>⚡ Villamosság</h3>
+                <p>Méréstechnikai alapok és helyes műszerhasználat (multiméter, oszcilloszkóp). Biztonságos munkavégzésre és hatékony elektromos hibaelhárításra épülő gyakorlatok.</p>
+            </div>
+
+            <!-- 3. Kártya -->
+            <div class="card">
+                <h3>🤖 Mechatronika</h3>
+                <p>Szenzorok, aktuátorok és vezérlési rendszerek integrációja. A komplex automatizált gyártósorok összefüggéseinek gyors átlátása és karbantartása.</p>
+            </div>
+        </div>
     </section>
 
 </body>
