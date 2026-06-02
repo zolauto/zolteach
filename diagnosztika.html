@@ -33,14 +33,71 @@
       margin: 0 auto;
       padding: 40px 20px;
     }
-    /* biztos, helyi h1 szabály a diagnosztika oldalra */
-.content-wrapper .text-box h1 {
-  text-align: center;
-  font-size: clamp(28px, 6vw, 56px);
-  margin: 0 0 12px 0;
-  line-height: 1.05;
-  font-weight: 700;
-}
+    
+    /* h1 szabály */
+    .content-wrapper .text-box h1 {
+      text-align: center;
+      font-size: clamp(28px, 6vw, 56px);
+      margin: 0 0 12px 0;
+      line-height: 1.05;
+      font-weight: 700;
+    }
+    
+    /* h2 szabály */
+    .content-wrapper .text-box h2 {
+      text-align: center;
+      font-size: 24px;
+      margin: 0 0 20px 0;
+      color: #ccff00;
+    }
+    
+    /* leírás (p tag) nagyobb betűméret */
+    .content-wrapper .text-box p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 20px 0 30px 0;
+    }
+    
+    /* gombok konténere */
+    .button-group {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    
+    /* vissza gomb stílusa - narancssárga, jól látható */
+    .btn-back, .btn-ajanlas {
+      display: inline-block;
+      padding: 12px 24px;
+      color: #0b0d10;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    
+    .btn-back {
+      background-color: #ff6600;
+    }
+    
+    .btn-back:hover {
+      background-color: #ffaa33;
+      transform: scale(1.05);
+    }
+    
+    .btn-ajanlas {
+      background-color: #00ff00;
+    }
+    
+    .btn-ajanlas:hover {
+      background-color: #66ff66;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
@@ -50,8 +107,12 @@
     <div class="text-box">
       <h1>🔍 Diagnosztika</h1>
       <h2>Járművek és ipari rendszerek hibakeresése</h2>
-      <p><strong>A képzés fókuszában a strukturált hibakeresési logika áll.</strong> A tréning célja, hogy a karbantartó csapat elkerülje a felesleges, időigényes gépalkatrész-szétszereléseket, és egy tiszta, szisztematikus folyamat mentén, a legrövidebb idő alatt azonosítsa a valós hibaforrást.</p>
-      <a href="index.html" class="btn-back">← Vissza a főoldalra</a>
+      <p><strong>A képzés fókuszában a strukturált hibakeresési logika áll.</strong> A tréning célja, hogy a karbantartó csapat elkerülje a felesleges, időigényes gépalkatrész-szétszereléséket, és egy tiszta, szisztematikus folyamatot megtanuljon, amely csökkenti a felkészülési időt és a valós hibaforrásotra.</p>
+      
+      <div class="button-group">
+        <a href="index.html" class="btn-back">← Vissza a főoldalra</a>
+        <a href="#ajanlat" class="btn-ajanlas">📋 Ajánlatkérés</a>
+      </div>
     </div>
   </div>
 </body>
