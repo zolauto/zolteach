@@ -1,52 +1,44 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Strukturált ipari diagnosztikai és hibakeresési tréning karbantartó csapatoknak. ZolTeach Műszaki Képzési Akadémia.">
-    <title>Diagnosztika Képzés - ZolTeach</title>
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Exo+2:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background-color: #0b0d10;
-    color: #e5e7eb;
-  }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Diagnosztika — Háttér teszt</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: #0b0d10;
+    }
 
-  /* háttérréteg: kép + sötét átlátszó réteg */
-  .teszt-hatter {
-    position: fixed;
-    inset: 0; /* top:0; right:0; bottom:0; left:0; */
-    z-index: 0;
-    background-image: linear-gradient(rgba(11,13,16,0.30), rgba(11,13,16,0.30)),
-                      url('images/diagnosztika-githubhoz.jpg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-    pointer-events: none; /* a háttér ne fogja meg a kattintásokat */
-  }
+    /* teljes képernyős háttérkép */
+    .bg {
+      position: fixed;
+      inset: 0; /* top:0; right:0; bottom:0; left:0; */
+      background-image: url('images/diagnosztika-githubhoz.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-attachment: fixed;
+      z-index: 0;
+    }
 
-  /* tartalom, ami a kép fölött van */
-  .content-wrapper {
-    position: relative;
-    z-index: 2;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 60px 20px;
-    color: #e5e7eb;
-  }
+    /* ha később szöveget akarsz, ez a réteg lesz fölötte */
+    .content {
+      position: relative;
+      z-index: 2;
+      color: #e5e7eb;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
 
-  /* ha van .container osztályod, biztosítsd, hogy látható legyen */
-  .container, .content-wrapper {
-    color: #e5e7eb !important;
-  }
-</style>
-
+  <!-- jelenleg üres tartalom; később ide jön a szöveg -->
+  <div class="content" aria-hidden="true"></div>
+</body>
 </html>
