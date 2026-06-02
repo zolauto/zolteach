@@ -10,44 +10,43 @@
     <link href="https://googleapis.com/css2?family=Exo+2:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'Ubuntu', sans-serif;
-  color: #e5e7eb;
-  line-height: 1.8;
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #0b0d10;
+    color: #e5e7eb;
+  }
 
-  /* többrétegű háttér: először a sötét átlátszó réteg, utána a kép */
-  background-image: linear-gradient(rgba(11,13,16,0.30), rgba(11,13,16,0.30)),
-                    url('https://zolauto.github.io/zolteach/images/diagnosztika-githubhoz.jpg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
-}
+  /* háttérréteg: kép + sötét átlátszó réteg */
+  .teszt-hatter {
+    position: fixed;
+    inset: 0; /* top:0; right:0; bottom:0; left:0; */
+    z-index: 0;
+    background-image: linear-gradient(rgba(11,13,16,0.30), rgba(11,13,16,0.30)),
+                      url('images/diagnosztika-githubhoz.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    pointer-events: none; /* a háttér ne fogja meg a kattintásokat */
+  }
 
+  /* tartalom, ami a kép fölött van */
+  .content-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    color: #e5e7eb;
+  }
 
-    <div class="container">
-        <h1>🔍 Diagnosztika <br><span>Járművek és ipari rendszerek hibakeresése</span></h1>
-        
-        <div class="highlight-box">
-            <p><strong>A képzés fókuszában a strukturált hibakeresési logika áll.</strong> A tréning célja, hogy a karbantartó csapat elkerülje a felesleges, időigényes gépalkatrész-szétszereléseket, és egy tiszta, szisztematikus folyamat mentén, a legrövidebb idő alatt azonosítsa a valós hibaforrást.</p>
-        </div>
+  /* ha van .container osztályod, biztosítsd, hogy látható legyen */
+  .container, .content-wrapper {
+    color: #e5e7eb !important;
+  }
+</style>
 
-        <h2>Milyen kompetenciákat fejleszt a tréning?</h2>
-        <ul>
-            <li><strong>Rendszerszintű megközelítés:</strong> A teljes gépészeti vagy járműrendszer összefüggéseinek átlátása a szétszerelés megkezdése előtt.</li>
-            <li><strong>Strukturált lépéssorozat:</strong> Logikus és következetes diagnosztikai protokoll alkalmazása, amely kizárja a találgatásokat.</li>
-            <li><strong>Tényalapú hibafeltárás:</strong> Fizikai mérési adatok és környezeti jelek helyes értelmezése a gyorsabb döntéshozatalért.</li>
-            <li><strong>Kritikus gondolkodás:</strong> A tünetek és a valódi gyökérok (Root Cause) éles elválasztása egymástól.</li>
-        </ul>
-
-        <h2>Alkalmazott módszertan</h2>
-        <p>A tréning során az elméleti alapokat azonnal valós járműveken, ipari szimulációkon és esettanulmányokon keresztül ültetjük át a gyakorlatba. A résztvevők olyan univerzális hibakeresési sémákat sajátítanak el, amelyek bármilyen összetett automatizált berendezésen vagy egyedi célgépen biztonsággal alkalmazhatók.</p>
-
-        <h2>Vállalati testreszabhatóság</h2>
-        <p>A ZolTeach Akadémia kiemelt figyelmet fordít arra, hogy a tréning anyaga igazodjon az Önök üzemében található specifikus technológiákhoz és géptípusokhoz. Igény esetén a gyakorlati feladatokat közvetlenül a vállalat saját eszközparkján vagy korábbi valós hibaeseményein keresztül modellezzük.</p>
-
-        <a href="index.html" class="btn-back">← Vissza a főoldalra</a>
-    </div>
-
-</body>
 </html>
