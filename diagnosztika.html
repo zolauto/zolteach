@@ -67,6 +67,20 @@
       justify-content: center;
     }
 
+    /* Header ikon + cím */
+    .header-icon {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header-icon img {
+      width: clamp(60px, 12vw, 120px);
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+    }
+
     /* H1 stílus - responsive */
     .content-wrapper .text-box h1 {
       text-align: center;
@@ -82,7 +96,7 @@
     .content-wrapper .text-box h2 {
       text-align: center;
       font-size: clamp(18px, 4vw, 24px);
-      margin: 0 0 20px 0;
+      margin: 0 0 30px 0;
       color: #ccff00;
       font-family: 'Ubuntu', Arial, sans-serif;
       font-weight: 500;
@@ -91,8 +105,8 @@
     /* Leírás szöveg */
     .content-wrapper .text-box p {
       font-size: clamp(14px, 2vw, 18px);
-      line-height: 1.6;
-      margin: 20px 0 30px 0;
+      line-height: 1.7;
+      margin: 15px 0 20px 0;
       font-family: 'Ubuntu', Arial, sans-serif;
       color: #e5e7eb;
     }
@@ -100,6 +114,40 @@
     .content-wrapper .text-box p strong {
       color: #ccff00;
       font-weight: 700;
+    }
+
+    /* Felsorolás stílus */
+    .benefits-list {
+      margin: 25px 0 30px 20px;
+      font-size: clamp(14px, 2vw, 16px);
+      line-height: 1.8;
+      font-family: 'Ubuntu', Arial, sans-serif;
+      color: #e5e7eb;
+    }
+
+    .benefits-list li {
+      margin-bottom: 12px;
+      list-style: none;
+      position: relative;
+      padding-left: 25px;
+    }
+
+    .benefits-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #00ff00;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    /* Szekció szöveg */
+    .section-title {
+      color: #ccff00;
+      font-weight: 700;
+      margin-top: 25px;
+      margin-bottom: 12px;
+      font-size: clamp(16px, 2.5vw, 20px);
     }
 
     /* Gombok konténere */
@@ -178,6 +226,10 @@
       .btn-back, .btn-ajanlas {
         width: 100%;
       }
+
+      .benefits-list {
+        margin-left: 15px;
+      }
     }
 
     /* Edge specifikus javítás */
@@ -193,13 +245,43 @@
 
   <div class="content-wrapper">
     <div class="text-box">
-      <h1>🔍 Diagnosztika</h1>
+      <div class="header-icon">
+        <img src="images/diagnosztika-jpg.jpg" alt="Diagnosztika ikon" />
+      </div>
+      
+      <h1>Diagnosztika</h1>
       <h2>Járművek és ipari rendszerek hibakeresése</h2>
+      
       <p>
-        <strong>A képzés fókuszában a strukturált hibakeresési logika áll.</strong> A tréning célja, hogy a karbantartó csapat elkerülje a felesleges, időigényes gépalkatrész-szétszereléseket és a drága diagnosztikai hibákat. Célunk, hogy a tanulók megtanuljanak szisztematikusan gondolkodni, hipotéziseket felállítani és tesztelni azokat valós ipari rendszereken.
+        <strong>A képzés középpontjában a strukturált hibakeresési logika áll.</strong> A résztvevők megtanulják, hogyan lehet a modern járművekben és ipari berendezésekben előforduló hibákat szisztematikusan, lépésről lépésre feltárni, felesleges szétszerelés és alkatrészcserék nélkül.
       </p>
+
       <p>
-        Az elméleti alapok mellett a gyakorlatban alkalmazott módszertan kerül előtérbe – hogyan lehet mérésekkel, megfigyelésekkel és logikus dedukcióval gyorsan azonosítani a hibaforrást. Ez csökkenti az üzemszünetet és növeli a vállalat produktivitását.
+        A tréning célja, hogy a karbantartó csapat:
+      </p>
+
+      <ul class="benefits-list">
+        <li>átlátható, ismételhető diagnosztikai folyamatot alkalmazzon</li>
+        <li>csökkentse a hibakeresés idejét</li>
+        <li>minimalizálja a téves beavatkozásokat</li>
+        <li>és valós hibaforrásra adjon megoldást, nem tüneti kezelésre</li>
+      </ul>
+
+      <p class="section-title">Tudástartalmat</p>
+      <p>
+        A program során a résztvevők megismerik a járműipari és ipari rendszerek tipikus hibamintáit, a logikai döntési pontokat, valamint azt, hogyan lehet a mérési eredményeket és jelenségeket ok-okozati összefüggésekbe rendezni. A hangsúly a gyakorlati alkalmazáson van: valós példákon keresztül mutatjuk be, hogyan lehet gyorsan és hatékonyan szűkíteni a hibakört, és hogyan lehet elkerülni a „vakon cserélgetős" karbantartási gyakorlatot.
+      </p>
+
+      <p class="section-title">Képzés végére a résztvevők képesek lesznek:</p>
+      <ul class="benefits-list">
+        <li>felépíteni egy diagnosztikai gondolkodási modellt</li>
+        <li>priorizálni a vizsgálati lépéseket</li>
+        <li>értelmezni a mérési eredményeket</li>
+        <li>és magabiztosan dönteni a következő beavatkozási lépésről</li>
+      </ul>
+
+      <p>
+        Ez a tudás közvetlenül csökkenti az állásidőt, a hibás alkatrészcserék költségét, és növeli a karbantartási csapat szakmai önállóságát.
       </p>
       
       <div class="button-group">
