@@ -11,29 +11,236 @@
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
-    /* --- IDE JÖN A TELJES EREDETI CSS + A SIDEBAR CSS --- */
+    /* CSS Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-    /* (nem ismétlem meg itt, mert nálad már jó helyen van) */
+    html, body {
+      height: 100%;
+      width: 100%;
+      background: #0b0d10;
+      font-family: 'Ubuntu', Arial, sans-serif;
+      color: #e5e7eb;
+    }
 
+    /* Háttér */
+    .bg {
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                        url('images/diagnosztika-githubhoz.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-attachment: scroll;
+      z-index: 0;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+    }
+
+    /* Safari asztali javítás */
+    @supports (-webkit-touch-callout: none) {
+      .bg { background-attachment: fixed; }
+    }
+
+    /* Tartalom */
+    .content-wrapper {
+      position: relative;
+      z-index: 2;
+      color: #ccff00;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .text-box p, .text-box li {
+      color: #e5e7eb;
+    }
+
+    .header-icon {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header-icon img {
+      width: clamp(60px, 12vw, 120px);
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+    }
+
+    h1 {
+      text-align: center;
+      font-size: clamp(28px, 6vw, 56px);
+      margin: 0 0 12px 0;
+      line-height: 1.05;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: clamp(18px, 4vw, 24px);
+      margin: 0 0 30px 0;
+      color: #ccff00;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: clamp(14px, 2vw, 18px);
+      line-height: 1.7;
+      margin: 15px 0 20px 0;
+    }
+
+    p strong { color: #ccff00; font-weight: 700; }
+
+    .benefits-list {
+      margin: 25px 0 30px 20px;
+      font-size: clamp(14px, 2vw, 16px);
+      line-height: 1.8;
+      color: #e5e7eb;
+    }
+
+    .benefits-list li {
+      margin-bottom: 12px;
+      list-style: none;
+      position: relative;
+      padding-left: 25px;
+    }
+
+    .benefits-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #00ff00;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .section-title {
+      color: #ccff00;
+      font-weight: 700;
+      margin-top: 25px;
+      margin-bottom: 12px;
+      font-size: clamp(16px, 2.5vw, 20px);
+    }
+
+    /* Gombok */
+    .button-group {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      justify-content: center;
+    }
+
+    .btn-back, .btn-ajanlas {
+      display: inline-block;
+      padding: 12px 24px;
+      color: #0b0d10;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: clamp(14px, 2vw, 16px);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    .btn-back { background-color: #ff6600; }
+    .btn-back:hover { background-color: #ffaa33; transform: scale(1.05); }
+    .btn-back:active { transform: scale(0.98); }
+
+    .btn-ajanlas { background-color: #00ff00; }
+    .btn-ajanlas:hover { background-color: #66ff66; transform: scale(1.05); }
+    .btn-ajanlas:active { transform: scale(0.98); }
+
+    button, a.btn-back, a.btn-ajanlas {
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    /* Mobil javítások */
+    @media (max-width: 768px) {
+      .content-wrapper { padding: 40px 15px; }
+      .button-group { flex-direction: column; }
+      .btn-back, .btn-ajanlas { width: 100%; }
+      .benefits-list { margin-left: 15px; }
+    }
+
+    /* Edge specifikus */
+    @supports (-ms-ime-align: auto) {
+      .btn-back, .btn-ajanlas { padding: 14px 26px; }
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.6);
+      padding: 12px 14px;
+      border-radius: 8px;
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      max-width: 220px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #ccff00;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .sidebar a:hover { color: #ffffff; }
+
+    /* Mobilon a sidebar kisebb és kicsit átlátszóbb */
+    @media (max-width: 600px) {
+      .sidebar {
+        top: 12px;
+        left: 12px;
+        padding: 10px;
+        max-width: 160px;
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- OLDALSÁV -->
-  <div class="sidebar">
+  <!-- SIDEBAR -->
+  <nav class="sidebar" aria-label="Oldal navigáció">
     <a href="index.html" data-page="index">Főoldal</a>
     <a href="diagnosztika.html" data-page="diagnosztika">Diagnosztika</a>
     <a href="elektrotechnika.html" data-page="elektrotechnika">Elektrotechnika</a>
-    <a href="IDE_KERÜL_MAJD_AZ_AJANLATKÉRŐ_ŰRLAP_LINKJE" data-page="ajanlat">Ajánlatkérés</a>
+    <a href="itt-lesz-ajanlatkero-url" data-page="ajanlat">Ajánlatkérés</a>
     <a href="adatkezeles.html" data-page="adatkezeles">Adatkezelési nyilatkozat</a>
-  </div>
+  </nav>
 
-  <!-- HÁTTÉRKÉP -->
+  <!-- HÁTTÉR -->
   <div class="bg" aria-hidden="true"></div>
 
   <!-- TARTALOM -->
-  <div class="content-wrapper">
+  <main class="content-wrapper" role="main">
     <div class="text-box">
 
       <div class="header-icon">
@@ -43,27 +250,48 @@
       <h1>Diagnosztika</h1>
       <h2>Járművek és ipari rendszerek hibakeresése</h2>
 
-      <!-- A TE EREDETI TARTALMAD ITT KEZDŐDIK -->
-      <p><strong>A képzés középpontjában...</strong></p>
+      <p><strong>A képzés középpontjában a strukturált hibakeresési logika áll.</strong> A résztvevők megtanulják, hogyan lehet a modern járművekben és ipari berendezésekben előforduló hibákat szisztematikusan, lépésről lépésre feltárni, felesleges szétszerelés és alkatrészcserék nélkül.</p>
 
-      <!-- ... és így tovább, minden marad változatlanul ... -->
+      <p>A tréning célja, hogy a karbantartó csapat:</p>
+
+      <ul class="benefits-list">
+        <li>átlátható, ismételhető diagnosztikai folyamatot alkalmazzon</li>
+        <li>csökkentse a hibakeresés idejét</li>
+        <li>minimalizálja a téves beavatkozásokat</li>
+        <li>és valós hibaforrásra adjon megoldást, nem tüneti kezelésre</li>
+      </ul>
+
+      <p class="section-title">Tudástartalom</p>
+      <p>A program során a résztvevők megismerik a járműipari és ipari rendszerek tipikus hibamintáit, a logikai döntési pontokat, valamint azt, hogyan lehet a mérési eredményeket és jelenségeket ok-okozati összefüggésekbe rendezni. A hangsúly a gyakorlati alkalmazáson van: valós példákon keresztül mutatjuk be, hogyan lehet gyorsan és hatékonyan szűkíteni a hibakört, és hogyan lehet elkerülni a „vakon cserélgetős" karbantartási gyakorlatot.</p>
+
+      <p class="section-title">Képzés végére a résztvevők képesek lesznek:</p>
+      <ul class="benefits-list">
+        <li>felépíteni egy diagnosztikai gondolkodási modellt</li>
+        <li>priorizálni a vizsgálati lépéseket</li>
+        <li>értelmezni a mérési eredményeket</li>
+        <li>és magabiztosan dönteni a következő beavatkozási lépésről</li>
+      </ul>
+
+      <p>Ez a tudás közvetlenül csökkenti az állásidőt, a hibás alkatrészcserék költségét, és növeli a karbantartási csapat szakmai önállóságát.</p>
 
       <div class="button-group">
-        <a href="index.html" class="btn-back">← Vissza a főoldalra</a>
-        <a href="IDE_KERÜL_MAJD_AZ_AJANLATKÉRŐ_ŰRLAP_LINKJE" class="btn-ajanlas">📋 Ajánlatkérés</a>
+        <a href="index.html" class="btn-back" aria-label="Vissza a főoldalra">← Vissza a főoldalra</a>
+        <a href="itt-lesz-ajanlatkero-url" class="btn-ajanlas" aria-label="Ajánlatkérés">📋 Ajánlatkérés</a>
       </div>
 
     </div>
-  </div>
+  </main>
 
-  <!-- AUTOMATIKUS LINK-ELREJTŐ SCRIPT -->
+  <!-- AUTOMATIKUS LINK ELREJTÉS -->
   <script>
-    const current = window.location.pathname.split("/").pop().replace(".html", "");
-    document.querySelectorAll(".sidebar a").forEach(link => {
-      if (link.dataset.page === current) {
-        link.style.display = "none";
-      }
-    });
+    (function() {
+      const current = window.location.pathname.split("/").pop().replace(".html", "") || "index";
+      document.querySelectorAll(".sidebar a").forEach(link => {
+        if (link.dataset.page === current) {
+          link.style.display = "none";
+        }
+      });
+    })();
   </script>
 
 </body>
