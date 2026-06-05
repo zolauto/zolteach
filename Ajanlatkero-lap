@@ -1,0 +1,141 @@
+<!-- Ajánlatkérő űrlap kezdete -->
+<section id="ajanlatkeres" aria-labelledby="ajanlatkeres-title" class="contact-section">
+  <h3 id="ajanlatkeres-title">Ajánlatkérés — Vállalati és online oktatás</h3>
+
+  <form id="contactForm" class="contact-form" method="POST" action="ITT_A_TE_ŰRLAP_VÉGPONTJA">
+    <div class="form-row">
+      <label for="company">Cégnév</label>
+      <input id="company" name="company" type="text" placeholder="Cégnév" required>
+    </div>
+
+    <div class="form-row">
+      <label for="contactName">Kapcsolattartó neve</label>
+      <input id="contactName" name="name" type="text" placeholder="Név" required>
+    </div>
+
+    <div class="form-row">
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" placeholder="email@ceg.hu" required>
+    </div>
+
+    <div class="form-row">
+      <label for="phone">Telefonszám</label>
+      <input id="phone" name="phone" type="tel" placeholder="+36 30 123 4567">
+    </div>
+
+    <div class="form-row">
+      <label for="trainingType">Oktatás típusa</label>
+      <select id="trainingType" name="trainingType" required>
+        <option value="">Válassz</option>
+        <option value="vallalati_helyszini">Vállalati (helyszíni) — igény szerint</option>
+        <option value="online">Online</option>
+        <option value="hybrid">Hibrid (online + helyszíni)</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label for="participants">Résztvevők száma (kb.)</label>
+      <input id="participants" name="participants" type="number" min="1" placeholder="Pl. 10">
+    </div>
+
+    <div class="form-row">
+      <label for="preferredDate">Preferált időpont / időszak</label>
+      <input id="preferredDate" name="preferredDate" type="text" placeholder="Pl. 2026. szeptember, vagy rugalmas">
+    </div>
+
+    <div class="form-row">
+      <label for="message">Üzenet / részletek</label>
+      <textarea id="message" name="message" rows="5" placeholder="Rövid leírás az igényről, célokról, speciális kérésekről"></textarea>
+    </div>
+
+    <div class="form-row checkbox-row">
+      <input id="consent" name="consent" type="checkbox" required>
+      <label for="consent">Hozzájárulok az adataim kezeléséhez az <a href="adatkezeles.html" target="_blank" rel="noopener">Adatkezelési nyilatkozat</a> szerint.</label>
+    </div>
+
+    <div class="form-row">
+      <button type="submit" class="btn-ajanlas">Ajánlatkérés elküldése</button>
+      <button type="button" id="contactReset" class="btn-back">Űrlap törlése</button>
+    </div>
+
+    <div id="formStatus" role="status" aria-live="polite" class="form-status" hidden></div>
+  </form>
+</section>
+<!-- Ajánlatkérő űrlap vége -->
+
+<!-- Stílus (illesszd a meglévő <style> blokkba vagy külön CSS fájlba) -->
+<style>
+.contact-section { margin: 30px auto; max-width: 900px; z-index:2; position:relative; }
+.contact-section h3 { color:#ccff00; margin-bottom:12px; font-family: 'Ubuntu', Arial, sans-serif; }
+.contact-form { background: rgba(11,13,16,0.75); padding:18px; border-radius:8px; box-shadow: 0 6px 18px rgba(0,0,0,0.5); }
+.form-row { margin-bottom:12px; display:flex; flex-direction:column; }
+.form-row label { color:#e5e7eb; margin-bottom:6px; font-weight:600; }
+.form-row input[type="text"], .form-row input[type="email"], .form-row input[type="tel"], .form-row input[type="number"], .form-row select, .form-row textarea {
+  padding:10px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.03); color:#e5e7eb;
+  font-family: 'Ubuntu', Arial, sans-serif;
+}
+.form-row textarea { resize:vertical; min-height:100px; }
+.checkbox-row { flex-direction:row; align-items:center; gap:10px; }
+.checkbox-row input[type="checkbox"] { width:18px; height:18px; }
+.btn-ajanlas { background:#00ff00; color:#0b0d10; padding:10px 16px; border-radius:6px; border:none; font-weight:700; cursor:pointer; }
+.btn-back { background:#ff6600; color:#0b0d10; padding:10px 16px; border-radius:6px; border:none; font-weight:700; cursor:pointer; margin-left:10px; }
+.form-status { margin-top:12px; color:#ccff00; }
+@media (max-width:720px) {
+  .contact-form { padding:14px; }
+  .checkbox-row { flex-direction:row; }
+  .btn-back { margin-left:8px; }
+}
+</style>
+
+<!-- JavaScript: kliensoldali validáció és küldés (AJAX) -->
+<script>
+(function(){
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  const resetBtn = document.getElementById('contactReset');
+
+  resetBtn.addEventListener('click', () => form.reset());
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    status.hidden = true;
+    // egyszerű validáció
+    const email = form.email.value.trim();
+    const name = form.contactName.value.trim();
+    const consent = form.consent.checked;
+    if (!name || !email || !consent) {
+      status.textContent = 'Kérjük töltsd ki a kötelező mezőket és fogadd el az adatkezelést.';
+      status.hidden = false;
+      return;
+    }
+
+    // Ha nincs backend, a következő rész csak demonstráció. Cseréld az URL-t a saját végpontra.
+    const endpoint = form.action || 'ITT_A_TE_ŰRLAP_VÉGPONTJA';
+    const formData = new FormData(form);
+
+    // AJAX küldés (fetch)
+    fetch(endpoint, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        // Ha JSON API-t használsz, alakítsd át a body-t JSON-re és állítsd be a Content-Type-ot.
+        // 'Content-Type': 'application/json'
+      },
+    })
+    .then(response => {
+      if (response.ok) {
+        status.textContent = 'Köszönjük! Az üzenetedet elküldtük. Hamarosan felvesszük veled a kapcsolatot.';
+        form.reset();
+      } else {
+        status.textContent = 'Hiba történt az elküldés során. Kérjük próbáld újra később.';
+      }
+      status.hidden = false;
+    })
+    .catch(err => {
+      console.error(err);
+      status.textContent = 'Hálózati hiba. Ellenőrizd az internetkapcsolatot, vagy próbáld később.';
+      status.hidden = false;
+    });
+  });
+})();
+</script>
