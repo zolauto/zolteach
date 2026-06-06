@@ -1,0 +1,19 @@
+/* TOC / sidebar */
+#site-toc {
+  position: fixed;
+  top: 100px;
+  left: 16px;
+  width: 220px;
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+  background: rgba(21,24,30,0.9);
+  padding: 12px;
+  border-radius: 8px;
+  z-index: 9999;
+}
+#site-toc h3 { color: #ffb703; margin-bottom: 8px; }
+#site-toc a { color: #cbd5e1; text-decoration: none; display:block; padding:6px 0; }
+#site-toc a.active { color:#fff; font-weight:700; }
+@media (max-width:900px) {
+  #site-toc { position: static; width: auto; max-height:none; margin:12px; }
+}
