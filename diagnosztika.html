@@ -189,32 +189,23 @@
       .btn-back, .btn-ajanlas { padding: 14px 26px; }
     }
 
-    /* VÍZSZINTES FELSØ MENÜ */
-    .top-nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(11, 13, 16, 0.85);
-      padding: 15px 20px;
-      backdrop-filter: blur(8px);
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      align-items: center;
-    }
+    <body>
 
-    .top-nav a {
-      color: #ccff00;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 16px;
-      transition: color 0.3s ease;
-    }
+  <!-- VÍZSZINTES FELSŐ MENÜ -->
+  <nav class="top-nav" aria-label="Fő navigáció">
+    <a href="index.html">Főoldal</a>
+    <span class="menu-active" title="Ön ezt az oldalt olvassa">Diagnosztika</span>
+    <a href="elektrotechnika.html">Elektrotechnika</a>
+    <a href="ajanlatkeres.html">Ajánlatkérés</a>
+    <a href="adatkezeles.html">Adatkezelés</a>
+  </nav>
 
-    .top-nav a:hover { color: #ffffff; }
+  <!-- HÁTTÉR -->
+  <div class="bg" aria-hidden="true"></div>
+
+  <!-- FŐ TARTALOM ÉS REKLÁMSÁV KÖZÖS KONTEJNERE -->
+  <div class="main-container">
+
 
     /* AKTÍV MENÜPONT: Nagyobb, sárga, nem kattintható */
     .menu-active {
