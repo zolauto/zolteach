@@ -47,6 +47,88 @@
     @supports (-webkit-touch-callout: none) {
       .bg { background-attachment: fixed; }
     }
+    /* Mobil javítások */
+    @media (max-width: 768px) {
+      .content-wrapper { padding: 40px 15px; margin-right: 0; max-width: 100%; }
+      .button-group { flex-direction: column; }
+      .btn-back, .btn-ajanlas { width: 100%; }
+      .benefits-list { margin-left: 15px; }
+      .main-container { flex-direction: column; }
+      .banner-sidebar { width: 100%; position: static; margin-top: 30px; }
+    }
+
+    /* Edge specifikus */
+    @supports (-ms-ime-align: auto) {
+      .btn-back, .btn-ajanlas { padding: 14px 26px; }
+    }
+
+    /* VÍZSZINTES FELSŐ MENÜ */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(11, 13, 16, 0.85);
+      padding: 15px 20px;
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      align-items: center;
+    }
+
+    .top-nav a {
+      color: #ccff00;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .top-nav a:hover { color: #ffffff; }
+
+    /* AKTÍV MENÜPONT */
+    .menu-active {
+      color: #ffb703 !important;
+      font-size: 19px !important;
+      font-weight: 700 !important;
+      cursor: help;
+    }
+
+    /* 3-RÉSZES ELRENDEZÉS KONTEJNER */
+    .main-container {
+      display: flex;
+      max-width: 1300px;
+      margin: 70px auto 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* REKLÁM SÁV */
+    .banner-sidebar {
+      width: 320px;
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Banner kocka alapstílusa */
+    .banner-box {
+      width: 100%;
+      height: 250px;
+      background: rgba(21, 24, 30, 0.8);
+      border: 1px dashed #ffb703;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #9ca3af;
+      font-size: 14px;
+      text-align: center;
+    }
 
     /* Tartalom */
     .content-wrapper {
@@ -173,15 +255,6 @@
       -moz-user-select: none;
       -webkit-user-select: none;
       user-select: none;
-    }
-    /* Mobil javítások */
-    @media (max-width: 768px) {
-      .content-wrapper { padding: 40px 15px; margin-right: 0; max-width: 100%; }
-      .button-group { flex-direction: column; }
-      .btn-back, .btn-ajanlas { width: 100%; }
-      .benefits-list { margin-left: 15px; }
-      .main-container { flex-direction: column; }
-      .banner-sidebar { width: 100%; position: static; margin-top: 30px; }
     }
 
     /* Edge specifikus */
