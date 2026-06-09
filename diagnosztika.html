@@ -284,16 +284,24 @@
   </main>
 
   <!-- AUTOMATIKUS LINK ELREJTÉS -->
-  <script>
-    (function() {
-      const current = window.location.pathname.split("/").pop().replace(".html", "") || "index";
-      document.querySelectorAll(".sidebar a").forEach(link => {
-        if (link.dataset.page === current) {
-          link.style.display = "none";
-        }
-      });
-    })();
-  </script>
+      <div class="button-group">
+        <a href="index.html" class="btn-back" aria-label="Vissza a főoldalra">← Vissza a főoldalra</a>
+        <a href="ajanlatkeres.html" class="btn-ajanlas" aria-label="Ajánlatkérés">📋 Ajánlatkérés</a>
+      </div>
+  </main>
+
+  <!-- JOBB OLDALI REKLÁMSÁV (BANNER KOCKÁK) -->
+  <aside class="banner-sidebar">
+    <div class="banner-box">
+      Hirdetés helye<br>(300x250 banner)
+    </div>
+    <div class="banner-box">
+      Hirdetés helye<br>(300x250 banner)
+    </div>
+  </aside>
+
+</div> <!-- Itt zárul be a main-container -->
 
 </body>
 </html>
+
