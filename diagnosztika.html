@@ -20,46 +20,29 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    html, body {
-      height: 100%;
-      width: 100%;
+    html {
+      scroll-behavior: smooth; /* Finom görgetés az űrlaphoz */
+    }
+
+    body {
       background: #0b0d10;
       font-family: 'Ubuntu', Arial, sans-serif;
       color: #e5e7eb;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Háttér */
+    /* Háttér kép kezelése */
     .bg {
       position: fixed;
       top: 0; right: 0; bottom: 0; left: 0;
-      background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+      background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
                         url('images/diagnosztika-githubhoz.jpg');
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
-      background-attachment: scroll;
       z-index: 0;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-    }
-
-    /* Safari asztali javítás */
-    @supports (-webkit-touch-callout: none) {
-      .bg { background-attachment: fixed; }
-    }
-    /* Mobil javítások */
-    @media (max-width: 768px) {
-      .content-wrapper { padding: 40px 15px; margin-right: 0; max-width: 100%; }
-      .button-group { flex-direction: column; }
-      .btn-back, .btn-ajanlas { width: 100%; }
-      .benefits-list { margin-left: 15px; }
-      .main-container { flex-direction: column; }
-      .banner-sidebar { width: 100%; position: static; margin-top: 30px; }
-    }
-
-    /* Edge specifikus */
-    @supports (-ms-ime-align: auto) {
-      .btn-back, .btn-ajanlas { padding: 14px 26px; }
     }
 
     /* VÍZSZINTES FELSŐ MENÜ */
@@ -68,15 +51,17 @@
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(11, 13, 16, 0.85);
+      background: rgba(11, 13, 16, 0.95);
       padding: 15px 20px;
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px); /* Safari támogatás */
       z-index: 9999;
       display: flex;
       justify-content: center;
       gap: 25px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .top-nav a {
@@ -95,145 +80,106 @@
       font-size: 19px !important;
       font-weight: 700 !important;
       cursor: help;
+      text-decoration: none;
     }
 
-    /* 3-RÉSZES ELRENDEZÉS KONTEJNER */
+    /* FŐ KONTÉNER (Böngészőoptimalizált Flexbox elrendezés) */
     .main-container {
       display: flex;
-      max-width: 1300px;
-      margin: 70px auto 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* REKLÁM SÁV */
-    .banner-sidebar {
-      width: 320px;
-      padding: 60px 20px;
-      display: flex;
       flex-direction: column;
-      gap: 20px;
-    }
-
-    /* Banner kocka alapstílusa */
-    .banner-box {
-      width: 100%;
-      height: 250px;
-      background: rgba(21, 24, 30, 0.8);
-      border: 1px dashed #ffb703;
-      border-radius: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #9ca3af;
-      font-size: 14px;
-      text-align: center;
-    }
-
-    /* Tartalom */
-    .content-wrapper {
-      position: relative;
-      z-index: 2;
-      color: #ccff00;
       max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 20px;
-      min-height: auto;
-      display: flex;
-      flex-direction: column;
+      margin: 90px auto 40px auto;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 0 20px;
     }
 
-    .text-box p, .text-box li {
-      color: #e5e7eb;
-    }
-
-    .header-icon {
-      text-align: center;
+    /* Tartalom blokk */
+    .content-wrapper {
+      background: rgba(21, 24, 30, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 40px;
       margin-bottom: 30px;
-    }
-
-    .header-icon img {
-      width: clamp(60px, 12vw, 120px);
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
     h1 {
       text-align: center;
-      font-size: clamp(28px, 6vw, 56px);
-      margin: 0 0 12px 0;
-      line-height: 1.05;
+      font-size: clamp(26px, 5vw, 46px);
+      margin-bottom: 10px;
+      line-height: 1.1;
       font-weight: 700;
       color: #ffffff;
     }
 
     h2 {
       text-align: center;
-      font-size: clamp(18px, 4vw, 24px);
-      margin: 0 0 30px 0;
+      font-size: clamp(16px, 3.5vw, 22px);
+      margin-bottom: 35px;
       color: #ccff00;
       font-weight: 500;
     }
 
     p {
-      font-size: clamp(14px, 2vw, 18px);
+      font-size: clamp(15px, 2vw, 17px);
       line-height: 1.7;
-      margin: 15px 0 20px 0;
+      margin-bottom: 20px;
+      color: #e5e7eb;
     }
 
     p strong { color: #ccff00; font-weight: 700; }
 
+    .section-title {
+      color: #ccff00;
+      font-weight: 700;
+      margin: 30px 0 15px 0;
+      font-size: clamp(18px, 2.5vw, 22px);
+      border-left: 4px solid #ffb703;
+      padding-left: 10px;
+    }
+
     .benefits-list {
-      margin: 25px 0 30px 20px;
-      font-size: clamp(14px, 2vw, 16px);
+      margin: 20px 0 30px 5px;
+      font-size: clamp(15px, 2vw, 16px);
       line-height: 1.8;
-      color: #e5e7eb;
     }
 
     .benefits-list li {
       margin-bottom: 12px;
       list-style: none;
       position: relative;
-      padding-left: 25px;
+      padding-left: 30px;
     }
 
     .benefits-list li::before {
       content: "✓";
       position: absolute;
-      left: 0;
+      left: 5px;
       color: #00ff00;
       font-weight: bold;
       font-size: 1.2em;
     }
 
-    .section-title {
-      color: #ccff00;
-      font-weight: 700;
-      margin-top: 25px;
-      margin-bottom: 12px;
-      font-size: clamp(16px, 2.5vw, 20px);
-    }
-
-    /* Gombok */
+    /* GOMBOZÁS */
     .button-group {
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
-      margin-top: 40px;
+      margin-top: 35px;
       justify-content: center;
     }
 
     .btn-back, .btn-ajanlas {
       display: inline-block;
-      padding: 12px 24px;
+      padding: 14px 28px;
       color: #0b0d10;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-weight: 700;
-      font-size: clamp(14px, 2vw, 16px);
-      transition: all 0.3s ease;
+      font-size: 16px;
+      transition: all 0.2s ease-in-out;
       border: none;
       cursor: pointer;
       text-align: center;
@@ -242,192 +188,138 @@
       appearance: none;
     }
 
-    .btn-back { background-color: #ff6600; }
-    .btn-back:hover { background-color: #ffaa33; transform: scale(1.05); }
-    .btn-back:active { transform: scale(0.98); }
+    .btn-back { background-color: #ff6600; color: #ffffff; }
+    .btn-back:hover { background-color: #ff8833; transform: translateY(-2px); }
 
     .btn-ajanlas { background-color: #00ff00; }
-    .btn-ajanlas:hover { background-color: #66ff66; transform: scale(1.05); }
-    .btn-ajanlas:active { transform: scale(0.98); }
+    .btn-ajanlas:hover { background-color: #44ff44; transform: translateY(-2px); }
 
-    button, a.btn-back, a.btn-ajanlas {
-      -moz-user-select: none;
-      -webkit-user-select: none;
-      user-select: none;
+    /* INTEGRÁLT B2B ŰRLAP STÍLUS */
+    .form-container {
+      background: rgba(15, 18, 23, 0.95);
+      border: 2px solid #ffb703;
+      border-radius: 12px;
+      padding: 40px;
+      margin-top: 20px;
     }
 
-    /* Edge specifikus */
-    @supports (-ms-ime-align: auto) {
-      .btn-back, .btn-ajanlas { padding: 14px 26px; }
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
+
+    .form-group label {
+      color: #ccff00;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 12px;
+      background: #1f242e;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      color: #ffffff;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 15px;
+    }
+
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      outline: none;
+      border-color: #00ff00;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: #00ff00;
+      color: #0b0d10;
+      padding: 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-submit:hover { background: #44ff44; }
+
+    /* Mobil optimalizálás (Safari/Chrome szétesés ellen) */
+    @media (max-width: 768px) {
+      .main-container { margin-top: 130px; padding: 0 10px; }
+      .content-wrapper, .form-container { padding: 25px 15px; }
+      .button-group { flex-direction: column; width: 100%; }
+      .btn-back, .btn-ajanlas { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HÁTTÉR -->
+  <div class="bg" aria-hidden="true"></div>
+
   <!-- VÍZSZINTES FELSŐ MENÜ -->
   <nav class="top-nav" aria-label="Fő navigáció">
     <a href="index.html">Főoldal</a>
     <span class="menu-active" title="Ön ezt az oldalt olvassa">Diagnosztika</span>
     <a href="elektrotechnika.html">Elektrotechnika</a>
-    <a href="ajanlatkeres.html">Ajánlatkérés</a>
+    <a href="#ajanlatkeres">Ajánlatkérés</a> <!-- Horgony link lefelé -->
     <a href="adatkezeles.html">Adatkezelés</a>
   </nav>
 
-  <!-- HÁTTÉR -->
-  <div class="bg" aria-hidden="true"></div>
-
-  <!-- FŐ TARTALOM ÉS REKLÁMSÁV KÖZÖS KONTEJNERE -->
-  <div class="main-container">
-
-
-    /* AKTÍV MENÜPONT: Nagyobb, sárga, nem kattintható */
-    .menu-active {
-      color: #ffb703 !important;
-      font-size: 19px !important;
-      font-weight: 700 !important;
-      cursor: help;
-    }
-
-    /* 3-RÉSZES ELRENDEZÉS KONTEJNER */
-    .main-container {
-      display: flex;
-      max-width: 1300px;
-      margin: 70px auto 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* REKLÁM SÁV (JOBB OLDAL) */
-    .banner-sidebar {
-      width: 320px;
-      padding: 60px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    /* Banner kocka alapstílusa */
-    .banner-box {
-      width: 100%;
-      height: 250px;
-      background: rgba(21, 24, 30, 0.8);
-      border: 1px dashed #ffb703;
-      border-radius: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #9ca3af;
-      font-size: 14px;
-      text-align: center;
-    }
-  </style>
-
-  <link rel="stylesheet" href="/zolteach/css/style.css">
-</head>
-
-<body>
-
-  <!-- SIDEBAR -->
-  <nav class="top-nav" aria-label="Oldal navigáció">
-    <a href="index.html" data-page="index">Főoldal</a>
-    <a href="diagnosztika.html" class="menu-active" title="Ön ezt az oldalt olvassa.">Diagnosztika</a>
-    <a href="elektrotechnika.html" data-page="elektrotechnika">Elektrotechnika</a>
-    <a href="itt-lesz-ajanlatkero-url" data-page="ajanlat">Ajánlatkérés</a>
-    <a href="adatkezeles.html" data-page="adatkezeles">Adatkezelési nyilatkozat</a>
-  </nav>
-
-  <!-- HÁTTÉR -->
-  <div class="bg" aria-hidden="true"></div>
-
-  <!-- TARTALOM -->
-  <main class="content-wrapper" role="main">
-    <div class="text-box">
-
-      <div class="header-icon">
-        <img src="images/diagnosztika-jpg.jpeg" alt="Diagnosztika ikon" />
-      </div>
-
-      <h1>Diagnosztika</h1>
-      <h2>Járművek és ipari rendszerek hibakeresése</h2>
-
-      <p><strong>A képzés középpontjában a strukturált hibakeresési logika áll.</strong> A résztvevők megtanulják, hogyan lehet a modern járművekben és ipari berendezésekben előforduló hibákat szisztematikusan, lépésről lépésre feltárni, felesleges szétszerelés és alkatrészcserék nélkül.</p>
-
-      <p>A tréning célja, hogy a karbantartó csapat:</p>
-
-      <ul class="benefits-list">
-        <li>átlátható, ismételhető diagnosztikai folyamatot alkalmazzon</li>
-        <li>csökkentse a hibakeresés idejét</li>
-        <li>minimalizálja a téves beavatkozásokat</li>
-        <li>és valós hibaforrásra adjon megoldást, nem tüneti kezelésre</li>
-      </ul>
-
-      <p class="section-title">Tudástartalom</p>
-      <p>A program során a résztvevők megismerik a járműipari és ipari rendszerek tipikus hibamintáit, a logikai döntési pontokat, valamint azt, hogyan lehet a mérési eredményeket és jelenségeket ok-okozati összefüggésekbe rendezni. A hangsúly a gyakorlati alkalmazáson van: valós példákon keresztül mutatjuk be, hogyan lehet gyorsan és hatékonyan szűkíteni a hibakört, és hogyan lehet elkerülni a „vakon cserélgetős" karbantartási gyakorlatot.</p>
-
-      <p class="section-title">Képzés végére a résztvevők képesek lesznek:</p>
-      <ul class="benefits-list">
-        <li>felépíteni egy diagnosztikai gondolkodási modellt</li>
-        <li>priorizálni a vizsgálati lépéseket</li>
-        <li>értelmezni a mérési eredményeket</li>
-        <li>és magabiztosan dönteni a következő beavatkozási lépésről</li>
-      </ul>
-
-      <p>Ez a tudás közvetlenül csökkentheti az állásidőt, a hibás alkatrészcserék költségét, és növelheti a karbantartási csapat szakmai önállóságát.</p>
-
-      <div class="button-group">
-        <a href="index.html" class="btn-back" aria-label="Vissza a főoldalra">← Vissza a főoldalra</a>
-        <a href="itt-lesz-ajanlatkero-url" class="btn-ajanlas" aria-label="Ajánlatkérés">📋 Ajánlatkérés</a>
-      </div>
-
-    </div>
-  </main>
-
-  <!-- AUTOMATIKUS LINK ELREJTÉS -->
-      <div class="button-group">
-        <a href="index.html" class="btn-back" aria-label="Vissza a főoldalra">← Vissza a főoldalra</a>
-        <a href="ajanlatkeres.html" class="btn-ajanlas" aria-label="Ajánlatkérés">📋 Ajánlatkérés</a>
-      </div>
-  </main>
-
-  <!-- JOBB OLDALI REKLÁMSÁV (BANNER KOCKÁK) -->
-  <aside class="banner-sidebar">
-    <div class="banner-box">
-      Hirdetés helye<br>(300x250 banner)
-    </div>
-    <div class="banner-box">
-      Hirdetés helye<br>(300x250 banner)
-    </div>
-  </aside>
-
-  <!-- ZolTeach Strukturált Diagnosztikai Igényfelmérő Űrlap -->
-<div id="ajanlatkeres" style="background-color: #111310; border: 1px solid rgba(255, 255, 255, 0.1); padding: 30px; margin: 40px auto; font-family: sans-serif; border-radius: 8px; max-width: 650px; position: relative; clear: both;">
-    <h3 style="color: #ffb703; margin-top: 0; font-size: 22px; border-bottom: 2px solid #28a745; padding-bottom: 10px;">Strukturált Diagnosztikai Igényfelmérés</h3>
-    <p style="color: #ccc; font-size: 14px; margin-bottom: 25px;">Kérjük, adja meg a karbantartó csapat alapadatait a tréning előkészítéséhez.</p>
+  <!-- FŐ TARTALOM KONTEJNER -->
+  <main class="main-container">
     
-    <form>
-        <div style="margin-bottom: 15px;">
-            <label style="display: block; font-weight: bold; margin-bottom: 5px; color: #ccff00; font-size: 14px;">Kapcsolattartó neve *</label>
-            <input type="text" required style="width: 100%; padding: 10px; border: 1px solid #444; background-color: #222; color: #fff; border-radius: 4px; box-sizing: border-box;">
-        </div>
-        <div style="margin-bottom: 15px;">
-            <label style="display: block; font-weight: bold; margin-bottom: 5px; color: #ccff00; font-size: 14px;">Cégnév / Szervezet *</label>
-            <input type="text" required style="width: 100%; padding: 10px; border: 1px solid #444; background-color: #222; color: #fff; border-radius: 4px; box-sizing: border-box;">
-        </div>
-        <div style="margin-bottom: 15px;">
-            <label style="display: block; font-weight: bold; margin-bottom: 5px; color: #ccff00; font-size: 14px;">Vállalati E-mail cím *</label>
-            <input type="email" required style="width: 100%; padding: 10px; border: 1px solid #444; background-color: #222; color: #fff; border-radius: 4px; box-sizing: border-box;">
-        </div>
-        <div style="margin-bottom: 20px;">
-            <label style="display: block; font-weight: bold; margin-bottom: 5px; color: #ccff00; font-size: 14px;">Karbantartók / technikusok becsült létszáma</label>
-            <input type="number" min="1" placeholder="Pl. 5" style="width: 100%; padding: 10px; border: 1px solid #444; background-color: #222; color: #fff; border-radius: 4px; box-sizing: border-box;">
-        </div>
-        <div style="margin-bottom: 25px;">
-            <label style="display: block; font-weight: bold; margin-bottom: 5px; color: #ccff00; font-size: 14px;">Kritikus részegységek vagy gyakori hibaállapotok (opcionális)</label>
-            <textarea placeholder="Pl. Érzékelők, relék, tápegységek meghibásodásai, vagy visszatérő mérési anomáliák..." style="width: 100%; padding: 10px; border: 1px solid #444; background-color: #222; color: #fff; border-radius: 4px; box-sizing: border-box; height: 100px; resize: vertical;"></textarea>
-        </div>
-        <button type="submit" style="background-color: #28a745; color: white; border: none; padding: 12px 20px; font-size: 16px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%;">
-            Diagnosztikai Igénybejelentés Elküldése
-        </button>
-    </form>
-</div>
-</div> <!-- Itt zárul be a main-container -->
+    <div class="content-wrapper">
+      <h1>Strukturált Gépjármű Diagnosztika</h1>
+      <h2>ZolTeach Műszaki Képzési Akadémia vállalati partnereknek</h2>
 
-</body>
-</html>
+      <p>A modern járműdiagnosztika ma már nem alapulhat szoftveres hibakód-olvasáson és találomra történő alkatrész-cseréken. A sikeres és költséghatékony vállalati üzemeltetés alapja a <strong>szisztematikus, mérési jegyzőkönyvekre épülő hibakeresési protokoll</strong> elsajátítása.</p>
 
+      <div class="section-title">Képzési Fókuszpontok Vállalkozásoknak</div>
+      <p>Programunkat kifejezetten úgy alakítottuk ki, hogy a meglévő vagy az újonnan belépő műszaki állomány azonnal konvertálható tudást kapjon az új eszközök és diagnosztikai rendszerek üzemeltetéséhez.</p>
+
+      <ul class="benefits-list">
+        <li><strong>Célirányos folyamatok:</strong> Ismeretlen vagy új diagnosztikai céleszközök gyors, magabiztos kezelésének betanítása.</li>
+        <li><strong>Rendszerszintű átképzés:</strong> Más műszaki vagy elméleti területről érkező munkaerő gyakorlatias, biztonságos integrálása a diagnosztikai munkafolyamatokba.</li>
+        <li><strong>Veszteségcsökkentés:</strong> A hibás diagnózisból eredő téves alkatrész-rendelések és a szükségtelen állásidők minimalizálása szigorú mérési logikával.</li>
+      </ul>
+
+      <div class="section-title">Moduláris felépítés a jövőnek</div>
+      <p>Ez a diagnosztikai modul mindössze az alapját képezi egy komplexebb, többlépcsős vállalati képzési rendszernek. Igény szerint a tréninget hozzáigazítjuk a cégénél újonnan beszerzett berendezések egyedi technológiai specifikációihoz.</p>
+
+      <div class="button-group">
+        <a href="index.html" class="btn-back">← Vissza a főoldalra</a>
+        <a href="#ajanlatkeres" class="btn-ajanlas">📋 Ajánlatkérés a lap alján</a>
+      </div>
+    </div>
+
+    <!-- INTEGRÁLT KONVERZIÓS ŰRLAP (A LAP ALJÁN) -->
+    <section class="form-container" id="ajanlatkeres">
+      <h2 style="color: #ffffff; margin-bottom: 10px; text-align: left;">Strukturált Diagnosztikai Igényfelmérés</h2>
+      <p style="font-size: 14px; margin-bottom: 25px; color: #ffb703;">Kérjük, adja meg a vállalati elérhetőségeket a specifikus képzési terv egyeztetéséhez.</p>
+
+      <!-- FORMSPREE INTEGRÁCIÓ: Cseréld ki a saját Formspree ID-dra, ha regisztráltál -->
+      <form action="https://formspree.io" method="POST">
+        
+        <div class="form-group">
+          <label for="company">Cég neve / Vállalkozás</label>
+          <input type="text" id="company" name="Cégnév" required placeholder="Pl. Kis és Társa Kft.">
+        </div>
+
+        <div class="form-group">
+          <label for="name">Kapcsolattartó neve</label>
+          <input type="text" id="name" name="Név" required placeholder="Az Ön neve">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Vállalati e-mail cím</label>
+          <input type="email" id="email" name="_replyto" required placeholder="iroda@cegnev.hu">
+        </div>
+
+        <div class="form-group">
+          <label for="scope">Képzésben érintett munkavállalók tervezett létszáma</label>
