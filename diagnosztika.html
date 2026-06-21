@@ -309,3 +309,71 @@
           <label style="margin-bottom: 10px; display: block;">Tervezett képzési létszám és struktúra (Válasszon egyet vagy többet):</label>
           
           <div style="display: flex; flex-direction: column; gap: 12px; background: #15181e; padding: 15px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05);">
+
+                  <div class="button-group">
+        <a href="index.html" class="btn-back">← Vissza a főoldalra</a>
+        <a href="#ajanlatkeres" class="btn-ajanlas">📋 Ajánlatkérés a lap alján</a>
+      </div>
+    </div>
+
+    <!-- [FORM SZEKCIÓ] INTEGRÁLT KONVERZIÓS ŰRLAP -->
+    <section class="form-container" id="ajanlatkeres">
+      <h2 style="color: #ffffff; margin-bottom: 10px; text-align: left;">Strukturált Diagnosztikai Igényfelmérés</h2>
+      <p style="font-size: 14px; margin-bottom: 25px; color: #ffb703;">Kérjük, jelölje ki az Önre vagy szervezetére vonatkozó képzési struktúrát, majd adja meg az elérhetőségeit.</p>
+
+      <form action="https://formspree.io" method="POST">
+        
+        <div class="form-group">
+          <label for="company">Cég neve / Magánszemély neve</label>
+          <input type="text" id="company" name="Név_vagy_Cégnév" required placeholder="Pl. Minta János vagy Kis Kft.">
+        </div>
+
+        <div class="form-group">
+          <label for="name">Kapcsolattartó neve (ha cégként jelentkezik)</label>
+          <input type="text" id="name" name="Kapcsolattartó_Neve" placeholder="Az Ön neve">
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail cím</label>
+          <input type="email" id="email" name="_replyto" required placeholder="minta@email.hu">
+        </div>
+
+        <div class="form-group">
+          <label style="margin-bottom: 10px; display: block;">Tervezett képzési létszám és struktúra (Válasszon egyet vagy többet):</label>
+          
+          <div style="display: flex; flex-direction: column; gap: 12px; background: #15181e; padding: 15px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05);">
+            <label style="display: flex; align-items: center; gap: 10px; color: #ffffff; cursor: pointer;">
+              <input type="checkbox" name="Létszám_1" value="1 fő" style="width: auto;"> 
+              <span><strong>1 fő</strong> (Egyéni képzés / magánszemélyként, pályamódosítóként jelentkezem)</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 10px; color: #ffffff; cursor: pointer;">
+              <input type="checkbox" name="Létszám_2" value="2-3 fő" style="width: auto;"> 
+              <span><strong>2–3 fő</strong> (Mikrovállalkozás / új munkaerő célirányos betanítása)</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 10px; color: #ffffff; cursor: pointer;">
+              <input type="checkbox" name="Létszám_3" value="4-10 fő" style="width: auto;"> 
+              <span><strong>4–10 fő</strong> (Kompakt szervizcsapat / kisebb csoport)</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 10px; color: #ffffff; cursor: pointer;">
+              <input type="checkbox" name="Létszám_4" value="Több kisebb turnus" style="width: auto;"> 
+              <span><strong>Több kisebb turnusban</strong> (A folyamatos vállalati műszakok biztosítása mellett)</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 10px; color: #ffffff; cursor: pointer;">
+              <input type="checkbox" name="Létszám_5" value="Nagy létszám / Előadóterem" style="width: auto;"> 
+              <span><strong>Nagy létszám / Előadóterem</strong> (80–100 fő felett, iskolarendszerű vagy elméleti alapozás)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Rövid leírás az aktuális kihívásról vagy célról (Milyen területen szeretne fejlődni?)</label>
+          <textarea id="message" name="Üzenet" rows="5" required placeholder="Írja le pár szóban az oktatni kívánt eszköz típusát vagy egyéni céljait..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Szakmai igénybejelentés elküldése</button>
+      </form>
+    </section>
+
+  </main>
+</body>
+</html>
