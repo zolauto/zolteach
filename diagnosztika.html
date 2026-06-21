@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
+  <!-- [Sorszám: 1-10] META ADATOK ÉS BETŰTÍPUSOK -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diagnosztika — ZolTeach Műszaki Képzési Akadémia</title>
+  <title>Diagnosztika — ZolTeach™ Műszaki Képzési Akadémia</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
-    /* CSS Reset */
+    /* [Sorszám: 12-40] CSS RESET ÉS ALAPSTÍLUSOK */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -20,9 +20,7 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    html {
-      scroll-behavior: smooth; /* Finom görgetés az űrlaphoz */
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       background: #0b0d10;
@@ -33,7 +31,7 @@
       flex-direction: column;
     }
 
-    /* Háttér kép kezelése */
+    /* [Sorszám: 42-52] HÁTTÉRKÉP SZEKCIÓ */
     .bg {
       position: fixed;
       top: 0; right: 0; bottom: 0; left: 0;
@@ -45,26 +43,38 @@
       z-index: 0;
     }
 
-    /* VÍZSZINTES FELSŐ MENÜ */
+    /* [Sorszám: 54-85] FEJLÉC / MENÜ STÍLUSOK */
     .top-nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       background: rgba(11, 13, 16, 0.95);
-      padding: 15px 20px;
+      padding: 10px 20px;
       backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px); /* Safari támogatás */
+      -webkit-backdrop-filter: blur(8px);
       z-index: 9999;
       display: flex;
-      justify-content: center;
-      gap: 25px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      justify-content: space-between; /* Logó balra, menü jobbra */
       align-items: center;
-      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .top-nav a {
+    .nav-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      height: 45px; /* Apró, elegáns méret a menüben */
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
       color: #ccff00;
       text-decoration: none;
       font-weight: 500;
@@ -72,18 +82,18 @@
       transition: color 0.3s ease;
     }
 
-    .top-nav a:hover { color: #ffffff; }
+    .nav-links a:hover { color: #ffffff; }
 
-    /* AKTÍV MENÜPONT */
+    /* [Sorszám: 87-94] AKTÍV MENÜPONT EMELÉSE */
     .menu-active {
       color: #ffb703 !important;
-      font-size: 19px !important;
+      font-size: 17px !important;
       font-weight: 700 !important;
       cursor: help;
       text-decoration: none;
     }
 
-    /* FŐ KONTÉNER (Böngészőoptimalizált Flexbox elrendezés) */
+    /* [Sorszám: 96-160] TARTALOM ÉS GOMBOK STÍLUSAI */
     .main-container {
       display: flex;
       flex-direction: column;
@@ -95,28 +105,25 @@
       padding: 0 20px;
     }
 
-    /* Tartalom blokk */
     .content-wrapper {
       background: rgba(21, 24, 30, 0.85);
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 12px;
       padding: 40px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      margin-bottom: 25px; /* Csökkentett rés az űrlap előtt */
     }
 
     h1 {
       text-align: center;
-      font-size: clamp(26px, 5vw, 46px);
+      font-size: clamp(26px, 5vw, 42px);
       margin-bottom: 10px;
       line-height: 1.1;
-      font-weight: 700;
       color: #ffffff;
     }
 
     h2 {
       text-align: center;
-      font-size: clamp(16px, 3.5vw, 22px);
+      font-size: clamp(16px, 3.5vw, 20px);
       margin-bottom: 35px;
       color: #ccff00;
       font-weight: 500;
@@ -126,10 +133,7 @@
       font-size: clamp(15px, 2vw, 17px);
       line-height: 1.7;
       margin-bottom: 20px;
-      color: #e5e7eb;
     }
-
-    p strong { color: #ccff00; font-weight: 700; }
 
     .section-title {
       color: #ccff00;
@@ -142,7 +146,6 @@
 
     .benefits-list {
       margin: 20px 0 30px 5px;
-      font-size: clamp(15px, 2vw, 16px);
       line-height: 1.8;
     }
 
@@ -151,6 +154,7 @@
       list-style: none;
       position: relative;
       padding-left: 30px;
+      color: #e5e7eb;
     }
 
     .benefits-list li::before {
@@ -159,14 +163,11 @@
       left: 5px;
       color: #00ff00;
       font-weight: bold;
-      font-size: 1.2em;
     }
 
-    /* GOMBOZÁS */
     .button-group {
       display: flex;
       gap: 15px;
-      flex-wrap: wrap;
       margin-top: 35px;
       justify-content: center;
     }
@@ -174,33 +175,25 @@
     .btn-back, .btn-ajanlas {
       display: inline-block;
       padding: 14px 28px;
-      color: #0b0d10;
-      text-decoration: none;
       border-radius: 6px;
       font-weight: 700;
-      font-size: 16px;
-      transition: all 0.2s ease-in-out;
-      border: none;
+      text-decoration: none;
+      transition: transform 0.2s;
       cursor: pointer;
-      text-align: center;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
     }
 
     .btn-back { background-color: #ff6600; color: #ffffff; }
-    .btn-back:hover { background-color: #ff8833; transform: translateY(-2px); }
+    .btn-back:hover { transform: translateY(-2px); }
 
-    .btn-ajanlas { background-color: #00ff00; }
-    .btn-ajanlas:hover { background-color: #44ff44; transform: translateY(-2px); }
+    .btn-ajanlas { background-color: #00ff00; color: #0b0d10; }
+    .btn-ajanlas:hover { transform: translateY(-2px); }
 
-    /* INTEGRÁLT B2B ŰRLAP STÍLUS */
+    /* [Sorszám: 162-225] INTEGRÁLT ŰRLAP DESIGN */
     .form-container {
       background: rgba(15, 18, 23, 0.95);
       border: 2px solid #ffb703;
       border-radius: 12px;
       padding: 40px;
-      margin-top: 20px;
     }
 
     .form-group {
@@ -210,13 +203,9 @@
       gap: 8px;
     }
 
-    .form-group label {
-      color: #ccff00;
-      font-weight: 500;
-      font-size: 15px;
-    }
+    .form-group label { color: #ccff00; font-weight: 500; }
 
-    .form-group input, .form-group textarea, .form-group select {
+    .form-group input, .form-group textarea {
       width: 100%;
       padding: 12px;
       background: #1f242e;
@@ -224,12 +213,6 @@
       border-radius: 6px;
       color: #ffffff;
       font-family: 'Ubuntu', sans-serif;
-      font-size: 15px;
-    }
-
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-      outline: none;
-      border-color: #00ff00;
     }
 
     .btn-submit {
@@ -242,43 +225,45 @@
       font-weight: 700;
       font-size: 18px;
       cursor: pointer;
-      transition: background 0.2s;
     }
 
-    .btn-submit:hover { background: #44ff44; }
-
-    /* Mobil optimalizálás (Safari/Chrome szétesés ellen) */
+    /* MOBIL OPTIMALIZÁLÁS */
     @media (max-width: 768px) {
-      .main-container { margin-top: 130px; padding: 0 10px; }
-      .content-wrapper, .form-container { padding: 25px 15px; }
-      .button-group { flex-direction: column; width: 100%; }
-      .btn-back, .btn-ajanlas { width: 100%; }
+      .top-nav { flex-direction: column; gap: 10px; }
+      .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+      .main-container { margin-top: 150px; }
+      .button-group { flex-direction: column; }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- HÁTTÉR -->
+  <!-- [Sorszám: 227-228] HÁTTÉR SZEKCIÓ -->
   <div class="bg" aria-hidden="true"></div>
 
-  <!-- VÍZSZINTES FELSŐ MENÜ -->
+  <!-- [Sorszám: 230-241] FEJLÉC / NAVIGÁCIÓ SZEKCIÓ -->
   <nav class="top-nav" aria-label="Fő navigáció">
-    <a href="index.html">Főoldal</a>
-    <span class="menu-active" title="Ön ezt az oldalt olvassa">Diagnosztika</span>
-    <a href="elektrotechnika.html">Elektrotechnika</a>
-    <a href="#ajanlatkeres">Ajánlatkérés</a> <!-- Horgony link lefelé -->
-    <a href="adatkezeles.html">Adatkezelés</a>
+    <div class="nav-logo">
+      <!-- Ide kerül az átlátszó új logód -->
+      <img src="images/zolteach-logo.png" alt="ZolTeach™ System Logo">
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Főoldal</a>
+      <span class="menu-active" title="Ön ezt az oldalt olvassa">Diagnosztika</span>
+      <a href="elektrotechnika.html">Elektrotechnika</a>
+      <a href="#ajanlatkeres">Ajánlatkérés</a>
+      <a href="adatkezeles.html">Adatkezelés</a>
+    </div>
   </nav>
 
-  <!-- FŐ TARTALOM KONTEJNER -->
+  <!-- [Sorszám: 243-325] FŐ TARTALOM SZEKCIÓ -->
   <main class="main-container">
     
     <div class="content-wrapper">
       <h1>Strukturált Gépjármű Diagnosztika</h1>
-      <h2>ZolTeach Műszaki Képzési Akadémia vállalati partnereknek</h2>
+      <h2>ZolTeach™ Műszaki Képzési Akadémia vállalati partnereknek</h2>
 
-      <p>A modern járműdiagnosztika ma már nem alapulhat szoftveres hibakód-olvasáson és találomra történő alkatrész-cseréken. A sikeres és költséghatékony vállalati üzemeltetés alapja a <strong>szisztematikus, mérési jegyzőkönyvekre épülő hibakeresési protokoll</strong> elsajátítása.</p>
+      <p>A modern járműdiagnosztika ma már nem alapulhat szoftveres hibakód-olvasáson és találomra történő alkatrész-cseréken. A sikeres és költséghatékony vállalati üzemeltetés alapja a <strong>szisztematikus, mérési jegyzőkönyvekre épülő hibakeresési protokoll</strong> elsajátítása a ZolTeach™ System segítségével.</p>
 
       <div class="section-title">Képzési Fókuszpontok Vállalkozásoknak</div>
       <p>Programunkat kifejezetten úgy alakítottuk ki, hogy a meglévő vagy az újonnan belépő műszaki állomány azonnal konvertálható tudást kapjon az új eszközök és diagnosztikai rendszerek üzemeltetéséhez.</p>
@@ -298,12 +283,11 @@
       </div>
     </div>
 
-    <!-- INTEGRÁLT KONVERZIÓS ŰRLAP (A LAP ALJÁN) -->
+    <!-- [Sorszám: 327-385] LÁBLÉC / ŰRLAP SZEKCIÓ (EZT FOGJUK KÉSŐBB CSERÉLNI) -->
     <section class="form-container" id="ajanlatkeres">
       <h2 style="color: #ffffff; margin-bottom: 10px; text-align: left;">Strukturált Diagnosztikai Igényfelmérés</h2>
-      <p style="font-size: 14px; margin-bottom: 25px; color: #ffb703;">Kérjük, adja meg a vállalati elérhetőségeket a specifikus képzési terv egyeztetéséhez.</p>
+      <p style="font-size: 14px; margin-bottom: 25px; color: #ffb703;">Kérjük, jelölje ki az Önök számára szükséges képzési volument és adja meg a vállalati elérhetőségeket.</p>
 
-      <!-- FORMSPREE INTEGRÁCIÓ: Cseréld ki a saját Formspree ID-dra, ha regisztráltál -->
       <form action="https://formspree.io" method="POST">
         
         <div class="form-group">
@@ -322,4 +306,6 @@
         </div>
 
         <div class="form-group">
-          <label for="scope">Képzésben érintett munkavállalók tervezett létszáma</label>
+          <label style="margin-bottom: 10px; display: block;">Tervezett képzési létszám és struktúra (Válasszon egyet vagy többet):</label>
+          
+          <div style="display: flex; flex-direction: column; gap: 12px; background: #15181e; padding: 15px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05);">
