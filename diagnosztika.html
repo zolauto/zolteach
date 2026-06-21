@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <!-- [Sorszám: 1-10] META ADATOK ÉS BETŰTÍPUSOK -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diagnosztika — ZolTeach™ Műszaki Képzési Akadémia</title>
 
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
-    /* [Sorszám: 12-40] CSS RESET ÉS ALAPSTÍLUSOK */
+    /* CSS RESET ÉS ALAPSTÍLUSOK */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -31,7 +30,7 @@
       flex-direction: column;
     }
 
-    /* [Sorszám: 42-52] HÁTTÉRKÉP SZEKCIÓ */
+    /* HÁTTÉRKÉP SZEKCIÓ */
     .bg {
       position: fixed;
       top: 0; right: 0; bottom: 0; left: 0;
@@ -43,7 +42,7 @@
       z-index: 0;
     }
 
-    /* [Sorszám: 54-85] FEJLÉC / MENÜ STÍLUSOK */
+    /* FEJLÉC / MENÜ STÍLUSOK */
     .top-nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -53,7 +52,7 @@
       -webkit-backdrop-filter: blur(8px);
       z-index: 9999;
       display: flex;
-      justify-content: space-between; /* Logó balra, menü jobbra */
+      justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
@@ -64,7 +63,7 @@
     }
 
     .nav-logo img {
-      height: 45px; /* Apró, elegáns méret a menüben */
+      height: 45px;
       width: auto;
     }
 
@@ -84,7 +83,7 @@
 
     .nav-links a:hover { color: #ffffff; }
 
-    /* [Sorszám: 87-94] AKTÍV MENÜPONT EMELÉSE */
+    /* AKTÍV MENÜPONT EMELÉSE */
     .menu-active {
       color: #ffb703 !important;
       font-size: 17px !important;
@@ -93,7 +92,7 @@
       text-decoration: none;
     }
 
-    /* [Sorszám: 96-160] TARTALOM ÉS GOMBOK STÍLUSAI */
+    /* TARTALOM ÉS GOMBOK STÍLUSAI */
     .main-container {
       display: flex;
       flex-direction: column;
@@ -110,7 +109,7 @@
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 12px;
       padding: 40px;
-      margin-bottom: 25px; /* Csökkentett rés az űrlap előtt */
+      margin-bottom: 25px;
     }
 
     h1 {
@@ -188,7 +187,7 @@
     .btn-ajanlas { background-color: #00ff00; color: #0b0d10; }
     .btn-ajanlas:hover { transform: translateY(-2px); }
 
-    /* [Sorszám: 162-225] INTEGRÁLT ŰRLAP DESIGN */
+    /* INTEGRÁLT ŰRLAP DESIGN */
     .form-container {
       background: rgba(15, 18, 23, 0.95);
       border: 2px solid #ffb703;
@@ -238,13 +237,12 @@
 </head>
 <body>
 
-  <!-- [Sorszám: 227-228] HÁTTÉR SZEKCIÓ -->
+  <!-- HÁTTÉR SZEKCIÓ -->
   <div class="bg" aria-hidden="true"></div>
 
-  <!-- [Sorszám: 230-241] FEJLÉC / NAVIGÁCIÓ SZEKCIÓ -->
+  <!-- FEJLÉC / NAVIGÁCIÓ SZEKCIÓ -->
   <nav class="top-nav" aria-label="Fő navigáció">
     <div class="nav-logo">
-      <!-- Ide kerül az átlátszó új logód -->
       <img src="images/zolteach-logo.png" alt="ZolTeach™ System Logo">
     </div>
     <div class="nav-links">
@@ -256,17 +254,17 @@
     </div>
   </nav>
 
-  <!-- [Sorszám: 243-325] FŐ TARTALOM SZEKCIÓ -->
+  <!-- FŐ TARTALOM SZEKCIÓ -->
   <main class="main-container">
     
     <div class="content-wrapper">
       <h1>Strukturált Gépjármű Diagnosztika</h1>
-      <h2>ZolTeach™ Műszaki Képzési Akadémia </h2>
+      <h2>ZolTeach™ Műszaki Képzési Akadémia</h2>
 
-      <p>A modern járműdiagnosztika ma már nem alapulhat szoftveres hibakód-olvasáson és találomra történő alkatrész-cseréken. A sikeres és költséghatékony vállalati üzemeltetés alapja a <strong>szisztematikus, mérési jegyzőkönyvekre épülő hibakeresési protokoll</strong> elsajátítása a ZolTeach™ System segítségével.</p>
+      <p>A modern járműdiagnosztika ma már nem alapulhat szoftveres hibakód-olvasáson és találomra történő alkatrész-cseréken. A sikeres és költséghatékony üzemeltetés alapja a <strong>szisztematikus, mérési jegyzőkönyvekre épülő hibakeresési protokoll</strong> elsajátítása a ZolTeach™ System segítségével.</p>
 
-      <div class="section-title">Képzési Fókuszpontok Vállalkozásoknak</div>
-      <p>Programunkat kifejezetten úgy alakítottuk ki, hogy a meglévő vagy az újonnan belépő műszaki állomány azonnal konvertálható tudást kapjon az új eszközök és diagnosztikai rendszerek üzemeltetéséhez.</p>
+      <div class="section-title">Képzési Fókuszpontok</div>
+      <p>Programunkat kifejezetten úgy alakítottuk ki, hogy a meglévő, az újonnan belépő műszaki állomány, vagy a fejlődni vágyó magánszemélyek azonnal konvertálható tudást kapjanak az új eszközök és diagnosztikai rendszerek üzemeltetéséhez.</p>
 
       <ul class="benefits-list">
         <li><strong>Célirányos folyamatok:</strong> Ismeretlen vagy új diagnosztikai céleszközök gyors, magabiztos kezelésének betanítása.</li>
@@ -275,7 +273,7 @@
       </ul>
 
       <div class="section-title">Moduláris felépítés a jövőnek</div>
-      <p>Ez a diagnosztikai modul mindössze az alapját képezi egy komplexebb, többlépcsős vállalati képzési rendszernek. Igény szerint a tréninget hozzáigazítjuk a cégénél újonnan beszerzett berendezések egyedi technológiai specifikációihoz.</p>
+      <p>Ez a diagnosztikai modul mindössze az alapját képezi egy komplexebb, többlépcsős képzési rendszernek. Igény szerint a tréninget hozzáigazítjuk a meglévő vagy az újonnan beszerzett berendezések egyedi technológiai specifikációihoz.</p>
 
       <div class="button-group">
         <a href="index.html" class="btn-back">← Vissza a főoldalra</a>
@@ -283,100 +281,33 @@
       </div>
     </div>
 
-    <!-- [Sorszám: 327-385] LÁBLÉC / ŰRLAP SZEKCIÓ (EZT FOGJUK KÉSŐBB CSERÉLNI) -->
+    <!-- LÁBLÉC / INTEGRÁLT KONVERZIÓS ŰRLAP SZEKCIÓ -->
     <section class="form-container" id="ajanlatkeres">
       <h2 style="color: #ffffff; margin-bottom: 10px; text-align: left;">Strukturált Diagnosztikai Igényfelmérés</h2>
-      <p style="font-size: 14px; margin-bottom: 25px; color: #ffb703;">Kérjük, jelölje ki az Önök számára szükséges képzési volument és adja meg a vállalati elérhetőségeket.</p>
+      <p style="font-size: 14px; margin-bottom: 25px; color: #ffb703;">Kérjük, jelölje ki az Önre vagy szervezetére vonatkozó képzési struktúrát, majd adja meg az elérhetőségeit.</p>
 
       <form action="https://formspree.io" method="POST">
         
         <div class="form-group">
-          <label for="company">Cég neve / Vállalkozás</label>
-          <input type="text" id="company" name="Cégnév" required placeholder="Pl. Kis és Társa Kft.">
+          <label for="company">Cég neve / Magánszemély neve</label>
+          <input type="text" id="company" name="Név_vagy_Cégnév" required placeholder="Pl. Minta János vagy Kis Kft.">
         </div>
 
         <div class="form-group">
-          <label for="name">Kapcsolattartó neve</label>
-          <input type="text" id="name" name="Név" required placeholder="Az Ön neve">
+          <label for="name">Kapcsolattartó neve (ha cégként jelentkezik)</label>
+          <input type="text" id="name" name="Kapcsolattartó_Neve" placeholder="Az Ön neve">
         </div>
 
         <div class="form-group">
-          <label for="email">Vállalati e-mail cím</label>
-          <input type="email" id="email" name="_replyto" required placeholder="iroda@cegnev.hu">
+          <label for="email">E-mail cím</label>
+          <input type="email" id="email" name="_replyto" required placeholder="minta@email.hu">
         </div>
 
         <div class="form-group">
           <label style="margin-bottom: 10px; display: block;">Tervezett képzési létszám és struktúra (Válasszon egyet vagy többet):</label>
           
           <div style="display: flex; flex-direction: column; gap: 12px; background: #15181e; padding: 15px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05);">
-
-                  <div class="button-group">
-        <a href="index.html" class="btn-back">← Vissza a főoldalra</a>
-        <a href="#ajanlatkeres" class="btn-ajanlas">📋 Ajánlatkérés a lap alján</a>
-      </div>
-    </div>
-
-    <!-- [FORM SZEKCIÓ] INTEGRÁLT KONVERZIÓS ŰRLAP -->
-  <section class="form-container" id="ajanlatkeres">
-  <h2 style="color: #ffffff; margin-bottom: 10px; text-align: left;">Strukturált Diagnosztikai Igényfelmérés</h2>
-  <p style="font-size: 14px; margin-bottom: 25px; color: #ffb703;">Kérjük, jelölje ki az Önre vagy szervezetére vonatkozó képzési struktúrát, majd adja meg az elérhetőségeit.</p>
-
-  <form action="https://formspree.io" method="POST">
-    
-    <div class="form-group">
-      <label for="company">Cég neve / Magánszemély neve</label>
-      <input type="text" id="company" name="Név_vagy_Cégnév" required placeholder="Pl. Minta János vagy Kis Kft.">
-    </div>
-
-    <div class="form-group">
-      <label for="name">Kapcsolattartó neve (ha cégként jelentkezik)</label>
-      <input type="text" id="name" name="Kapcsolattartó_Neve" placeholder="Az Ön neve">
-    </div>
-
-    <div class="form-group">
-      <label for="email">E-mail cím</label>
-      <input type="email" id="email" name="_replyto" required placeholder="minta@email.hu">
-    </div>
-
-    <div class="form-group">
-      <label style="margin-bottom: 10px; display: block;">Tervezett képzési létszám és struktúra (Válasszon egyet vagy többet):</label>
-      
-      <div style="display: flex; flex-direction: column; gap: 12px; background: #15181e; padding: 15px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05);">
-        <label style="display: flex; align-items: center; gap: 10px; color: #ffffff; cursor: pointer;">
-          <input type="checkbox" name="Létszám_1" value="1 fő" style="width: auto;"> 
-          <span><strong>1 fő</strong> (Egyéni képzés / magánszemélyként, pályamódosítóként jelentkezem)</span>
-        </label>
-        <label style="display: flex; align-items: center; gap: 10px; color: #ffffff; cursor: pointer;">
-          <input type="checkbox" name="Létszám_2" value="2-3 fő" style="width: auto;"> 
-          <span><strong>2–3 fő</strong> (Mikrovállalkozás / új munkaerő célirányos betanítása)</span>
-        </label>
-        <label style="display: flex; align-items: center; gap: 10px; color: #ffffff; cursor: pointer;">
-          <input type="checkbox" name="Létszám_3" value="4-10 fő" style="width: auto;"> 
-          <span><strong>4–10 fő</strong> (Kompakt szervizcsapat / kisebb csoport)</span>
-        </label>
-        <label style="display: flex; align-items: center; gap: 10px; color: #ffffff; cursor: pointer;">
-          <input type="checkbox" name="Létszám_4" value="Több kisebb turnus" style="width: auto;"> 
-          <span><strong>Több kisebb turnusban</strong> (A folyamatos vállalati műszakok biztosítása mellett)</span>
-        </label>
-        <label style="display: flex; align-items: center; gap: 10px; color: #ffffff; cursor: pointer;">
-          <input type="checkbox" name="Létszám_5" value="Nagy létszám / Előadóterem" style="width: auto;"> 
-          <span><strong>Nagy létszám / Előadóterem</strong> (80–100 fő felett, iskolarendszerű vagy elméleti alapozás)</span>
-        </label>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="message">Rövid leírás az aktuális kihívásról vagy célról (Milyen területen szeretne fejlődni?)</label>
-      <textarea id="message" name="Üzenet" rows="5" required placeholder="Írja le pár szóban az oktatni kívánt eszköz típusát vagy egyéni céljait..."></textarea>
-    </div>
-
-    <button type="submit" class="btn-submit">Szakmai igénybejelentés elküldése</button>
-  </form>
-</section>
-
-<!-- FIGYELEM: CSAK EZ AZ EGY LEZÁRÁS MARADJON ITT! -->
-  </main>
-</body>
-</html>
-
-
+            <label style="display: flex; align-items: center; gap: 10px; color: #ffffff; cursor: pointer;">
+              <input type="checkbox" name="Létszám_1" value="1 fő" style="width: auto;"> 
+              <span><strong>1 fő</strong> (Egyéni képzés / magánszemélyként, pályamódosítóként jelentkezem)</span>
+            </label>
