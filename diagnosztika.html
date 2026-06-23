@@ -281,13 +281,85 @@
       </div>
     </div>
 
-  
-
     <aside class="banner-sidebar">
         <div class="banner-box">Hirdetés helye<br>(300x250 banner)</div>
         <div class="banner-box">Hirdetés helye<br>(300x250 banner)</div>
     </aside>
 
+<!-- uj-wix-urlap - kezdete -->
+<section class="form-container" id="ajanlatkeres">
+
+  <h2>Kapcsolatfelvételi Űrlap</h2>
+
+  <form action="#" method="post">
+
+    <!-- Név -->
+    <div class="form-group">
+      <label for="nev">Név</label>
+      <input type="text" id="nev" name="nev" placeholder="Add meg a neved" required>
+    </div>
+
+    <!-- Cég -->
+    <div class="form-group">
+      <label for="ceg">Cég</label>
+      <input type="text" id="ceg" name="ceg" placeholder="Cégnév (opcionális)">
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email cím</label>
+      <input type="email" id="email" name="email" placeholder="valami@pelda.hu" required>
+    </div>
+
+    <!-- Képzési mód -->
+    <div class="form-group">
+      <label>Képzési mód</label>
+
+      <label><input type="radio" name="kepzesi_mod" value="helyszini" required> Helyszíni, vállalati oktatás</label>
+      <label><input type="radio" name="kepzesi_mod" value="muhely"> ZolTeach műhelyben tartott képzés</label>
+      <label><input type="radio" name="kepzesi_mod" value="vegyes"> Vegyes (helyszíni + műhely)</label>
+      <label><input type="radio" name="kepzesi_mod" value="online"> Online elméleti modul</label>
+    </div>
+
+    <!-- Létszám -->
+    <div class="form-group">
+      <label>Tanulók létszáma</label>
+
+      <label><input type="checkbox" name="letszam" value="1-5"> 1–5 fő</label>
+      <label><input type="checkbox" name="letszam" value="6-10"> 6–10 fő</label>
+      <label><input type="checkbox" name="letszam" value="11-20"> 11–20 fő</label>
+      <label><input type="checkbox" name="letszam" value="20+"> 20+ fő</label>
+      <label><input type="checkbox" name="letszam" value="egyeb"> Egyéb</label>
+    </div>
+
+    <!-- Üzenet -->
+    <div class="form-group">
+      <label for="uzenet">Üzenet</label>
+      <textarea id="uzenet" name="uzenet" rows="5" placeholder="Miben segíthetünk?" required></textarea>
+    </div>
+
+    <!-- GDPR -->
+    <div class="form-group">
+      <label>
+        <input type="checkbox" required>
+        Olvasd el és elfogadom az <a href="adatkezeles.html" target="_blank">adatkezelési tájékoztatót</a>.
+      </label>
+    </div>
+
+    <!-- Gomb -->
+    <button type="submit" class="btn-submit">Kapcsolatfelvétel elküldése</button>
+
+    <p style="margin-top:15px; font-size:14px; opacity:0.8;">
+      A kapcsolatfelvétel elküldése nem jár kötelezettséggel. Kollégáink hamarosan keresni fognak.
+    </p>
+
+  </form>
+
+</section>
+<!-- uj-wix-urlap - vege -->
+
+    
+  </main>
 <!-- popup - ablak - diagnosztika jegyzőkönyv kezdete -->
 <div id="popup-jegyzokonyv" class="popup-overlay">
     <div class="popup-content">
