@@ -287,75 +287,78 @@
     </aside>
 
 <!-- uj-wix-urlap - kezdete -->
-<section class="form-container" id="ajanlatkeres">
+<!-- START: Diagnosztika hero + form (replace existing hero section) -->
+<section id="diagnosztika-hero" class="hero-section">
+  <div class="hero-inner container">
+    <div class="hero-left" aria-hidden="true"></div>
 
-  <h2>Kapcsolatfelvételi Űrlap</h2>
+    <div class="hero-right">
+      <div class="hero-text">
+        <h1>Diagnosztika – Járművek és ipari rendszerek hibakeresése</h1>
+        <p class="lead">Gyakorlatorientált diagnosztikai képzés műhelyspecifikus gyakorlatokkal, mérőműszerek és valós esettanulmányok.</p>
+      </div>
 
-  <form action="#" method="post">
+      <form id="contact-form" class="compact-form" novalidate>
+        <div class="form-row">
+          <label for="name">Név <span class="required">*</span></label>
+          <input id="name" name="name" type="text" required />
+        </div>
 
-    <!-- Név -->
-    <div class="form-group">
-      <label for="nev">Név</label>
-      <input type="text" id="nev" name="nev" placeholder="Add meg a neved" required>
+        <div class="form-row">
+          <label for="company">Cégnév</label>
+          <input id="company" name="company" type="text" />
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email cím <span class="required">*</span></label>
+          <input id="email" name="email" type="email" required />
+        </div>
+
+        <div class="form-row">
+          <label for="mode">Képzési mód <span class="required">*</span></label>
+          <select id="mode" name="mode" required>
+            <option value="">Válassz</option>
+            <option>Helyszíni, vállalati oktatás</option>
+            <option>ZolTeach műhelyben tartott képzés</option>
+            <option>Vegyes (helyszíni + műhely)</option>
+            <option>Online elméleti modul</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="size">Tanulók létszáma <span class="required">*</span></label>
+          <select id="size" name="size" required>
+            <option value="">Válassz</option>
+            <option>1–5 fő</option>
+            <option>6–10 fő</option>
+            <option>11–20 fő</option>
+            <option>20+ fő</option>
+            <option>Egyéb</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="message">Üzenet</label>
+          <textarea id="message" name="message" rows="3"></textarea>
+        </div>
+
+        <p class="form-note">A kapcsolatfelvétel semmilyen kötelezettséggel nem jár. Az űrlap elküldése után kollégánk egyeztet Önnel a részletekről.</p>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Kapcsolatfelvétel elküldése</button>
+        </div>
+      </form>
     </div>
+  </div>
 
-    <!-- Cég -->
-    <div class="form-group">
-      <label for="ceg">Cég</label>
-      <input type="text" id="ceg" name="ceg" placeholder="Cégnév (opcionális)">
-    </div>
-
-    <!-- Email -->
-    <div class="form-group">
-      <label for="email">Email cím</label>
-      <input type="email" id="email" name="email" placeholder="valami@pelda.hu" required>
-    </div>
-
-    <!-- Képzési mód -->
-    <div class="form-group">
-      <label>Képzési mód</label>
-
-      <label><input type="radio" name="kepzesi_mod" value="helyszini" required> Helyszíni, vállalati oktatás</label>
-      <label><input type="radio" name="kepzesi_mod" value="muhely"> ZolTeach műhelyben tartott képzés</label>
-      <label><input type="radio" name="kepzesi_mod" value="vegyes"> Vegyes (helyszíni + műhely)</label>
-      <label><input type="radio" name="kepzesi_mod" value="online"> Online elméleti modul</label>
-    </div>
-
-    <!-- Létszám -->
-    <div class="form-group">
-      <label>Tanulók létszáma</label>
-
-      <label><input type="checkbox" name="letszam" value="1-5"> 1–5 fő</label>
-      <label><input type="checkbox" name="letszam" value="6-10"> 6–10 fő</label>
-      <label><input type="checkbox" name="letszam" value="11-20"> 11–20 fő</label>
-      <label><input type="checkbox" name="letszam" value="20+"> 20+ fő</label>
-      <label><input type="checkbox" name="letszam" value="egyeb"> Egyéb</label>
-    </div>
-
-    <!-- Üzenet -->
-    <div class="form-group">
-      <label for="uzenet">Üzenet</label>
-      <textarea id="uzenet" name="uzenet" rows="5" placeholder="Miben segíthetünk?" required></textarea>
-    </div>
-
-    <!-- GDPR -->
-    <div class="form-group">
-      <label>
-        <input type="checkbox" required>
-        Olvasd el és elfogadom az <a href="adatkezeles.html" target="_blank">adatkezelési tájékoztatót</a>.
-      </label>
-    </div>
-
-    <!-- Gomb -->
-    <button type="submit" class="btn-submit">Kapcsolatfelvétel elküldése</button>
-
-    <p style="margin-top:15px; font-size:14px; opacity:0.8;">
-      A kapcsolatfelvétel elküldése nem jár kötelezettséggel. Kollégáink hamarosan keresni fognak.
-    </p>
-
-  </form>
-
+  <!-- bannerek container: az űrlap alá kerül -->
+  <div class="hero-banners container" id="hero-banners">
+    <div class="banner">Banner 1 tartalom</div>
+    <div class="banner">Banner 2 tartalom</div>
+  </div>
 </section>
+<!-- END: Diagnosztika hero + form -->
+
 <!-- uj-wix-urlap - vege -->
 
     
