@@ -233,6 +233,60 @@
       .main-container { margin-top: 150px; }
       .button-group { flex-direction: column; }
     }
+
+/* Diagnosztika hero + form (Wix-like two-column) */
+.hero-section { padding: 40px 0; background:#0f1720; color:#fff; }
+.container { max-width:1200px; margin:0 auto; padding:0 20px; box-sizing:border-box; }
+
+.hero-inner { display:flex; gap:30px; align-items:stretch; }
+.hero-left {
+  flex:1;
+  background-image: url('/assets/diagnosztika-bg.jpg'); /* cseréld a képre */
+  background-size:cover; background-position:center;
+  border-radius:8px;
+  min-height:420px;
+  position:relative;
+}
+.hero-right { flex:1; display:flex; flex-direction:column; justify-content:center; }
+
+.hero-text h1 { font-size:28px; margin:0 0 10px; color:#fff; }
+.lead { margin:0 0 18px; color:#d1d5db; }
+
+.compact-form { background:rgba(255,255,255,0.03); padding:18px; border-radius:8px; box-shadow:0 6px 18px rgba(2,6,23,0.6); }
+.form-row { margin-bottom:10px; display:flex; flex-direction:column; }
+.form-row label { font-size:13px; color:#e5e7eb; margin-bottom:6px; }
+.form-row input, .form-row select, .form-row textarea {
+  padding:10px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.02); color:#fff; font-size:14px;
+}
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus { outline:none; border-color:#60a5fa; box-shadow:0 0 0 3px rgba(96,165,250,0.08); }
+
+.form-note { font-size:13px; color:#9ca3af; margin:8px 0 12px; }
+.form-actions { display:flex; gap:10px; }
+.btn-primary {
+  background:#ff7a00; color:#fff; border:none; padding:10px 16px; border-radius:6px; cursor:pointer;
+  font-weight:600;
+}
+.btn-primary:hover { opacity:0.95; }
+
+/* banners */
+.hero-banners { display:flex; gap:16px; margin-top:18px; }
+.banner { flex:1; background:#071029; padding:14px; border-radius:8px; color:#fff; text-align:center; }
+
+/* Responsive */
+@media (max-width:900px) {
+  .hero-inner { flex-direction:column; }
+  .hero-left { min-height:220px; order:1; }
+  .hero-right { order:2; }
+  .hero-banners { flex-direction:column; }
+}
+@media (max-width:480px) {
+  .hero-text h1 { font-size:20px; }
+  .compact-form { padding:12px; }
+  .form-row input, .form-row select, .form-row textarea { padding:8px; font-size:13px; }
+}
+
+    
   </style>
 </head>
 <body>
