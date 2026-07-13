@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZolTeach Műszaki Képzési Akadémia</title>
-    <!-- Google Fonts betűtípusok (Ubuntu és Exo 2) -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Exo+2:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
             font-family: 'Ubuntu', sans-serif; 
             background-color: #0b0d10; 
-            color: #e5e7eb; /* Finomabb, lágyabb törtfehér szövegszín, hogy ne bántsa a szemet */
+            color: #e5e7eb;
         }
-        /* --- HERO SZAKASZ --- */
         .hero {
             background: linear-gradient(rgba(11, 13, 16, 0.5), rgba(11, 13, 16, 0.5)), 
                         url('images/zolteach-hatterkep.jpeg') no-repeat center center/cover;
@@ -38,14 +36,14 @@
         }
         
         h1 span { 
-            color: #ffb703; /* Meleg sárga kiemelés */
+            color: #ffb703;
         }
 
         .hero p { 
             font-size: 1.35rem; 
             max-width: 900px; 
             margin-bottom: 48px; 
-            color: #9ca3af; /* Tompább szürke a jobb olvashatóságért a sötét háttéren */
+            color: #9ca3af;
             line-height: 1.8; 
         }
         
@@ -65,7 +63,6 @@
             transform: translateY(-2px);
         }
 
-        /* --- MODULOK SZAKASZ (A 3 ÚJ KÁRTYA) --- */
         .modules-section {
             padding: 80px 20px;
             max-width: 1200px;
@@ -84,11 +81,11 @@
             display: flex;
             gap: 30px;
             justify-content: center;
-            flex-wrap: wrap; /* Mobilbarát megjelenéshez, ha szűk a kijelző */
+            flex-wrap: wrap;
         }
 
         .card {
-            background-color: #15181e; /* Sötétszürke kártya háttér, ami illik a laboros képhez */
+            background-color: #15181e;
             border: 1px solid #222731;
             border-radius: 12px;
             padding: 40px 30px;
@@ -101,7 +98,7 @@
 
         .card:hover {
             transform: translateY(-5px);
-            border-color: #ffb703; /* Ha rásiklik az egér, finoman besárgul a keret */
+            border-color: #ffb703;
         }
 
         .card h3 {
@@ -117,11 +114,9 @@
             line-height: 1.6;
         }
     </style>
-    <link rel="stylesheet" href="/zolteach/css/style.css">
 </head>
 <body>
 
-    <!-- Hero szakasz -->
     <section class="hero">
         <h1>ZolTeach <br><span>Műszaki Képzési Akadémia</span></h1>
         <p>
@@ -132,51 +127,47 @@
         <a href="#" class="btn">Vállalati ajánlatkérés</a>
     </section>
 
-    <!-- ÚJ: 3-hasábos képzési modulok szakasz -->
     <section class="modules-section">
         <h2>Elérhető Szakmai Modulok</h2>
         
         <div class="grid">
-            <!-- 1. Kártya -->
             <div class="card">
-                <h3>🔍 Vállalati , kis- és középválallati képzések</h3>
+                <h3>🔍 Vállalati, kis- és középválallati képzések</h3>
                 <p>A strukturált hibakeresési logika fejlesztése. Célunk a felesleges szétszerelések elkerülése és a szisztematikus folyamatok elsajátítása valós ipari rendszereken.</p>
             </div>
 
-            <!-- 2. Kártya -->
             <div class="card">
                 <h3>Lakossági képzések</h3>
                 <p>Méréstechnikai alapok és helyes műszerhasználat (multiméter, oszcilloszkóp). Biztonságos munkavégzésre és hatékony elektromos hibaelhárításra épülő gyakorlatok.</p>
             </div>
 
-            <!-- 3. Kártya -->
             <div class="card">
                 <h3>Közösségi képzések</h3>
                 <p>Szenzorok, aktuátorok és vezérlési rendszerek integrációja. A komplex automatizált gyártósorok összefüggéseinek gyors átlátása és karbantartása.</p>
             </div>
         </div>
     </section>
-<script>
-(async function(){
-  try {
-    const resp = await fetch('/zolteach/toc.html'); // vagy '/toc.html' ha a gyökérben
-    if(!resp.ok) return;
-    const html = await resp.text();
-    const wrapper = document.createElement('div');
-    wrapper.innerHTML = html;
-    document.body.insertBefore(wrapper, document.body.firstChild);
 
-    // Aktív link kiemelése
-    const links = document.querySelectorAll('#site-toc a');
-    const path = location.pathname.replace(/\/$/, '');
-    links.forEach(a => {
-      if(a.getAttribute('href').replace(/\/$/, '') === path) a.classList.add('active');
-    });
-  } catch(e) {
-    console.warn('TOC betöltés sikertelen', e);
-  }
-})();
-</script>
+    <script>
+        (async function(){
+            try {
+                const resp = await fetch('/zolteach/toc.html');
+                if(!resp.ok) return;
+                const html = await resp.text();
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = html;
+                document.body.insertBefore(wrapper, document.body.firstChild);
+
+                const links = document.querySelectorAll('#site-toc a');
+                const path = location.pathname.replace(/\/$/, '');
+                links.forEach(a => {
+                    if(a.getAttribute('href').replace(/\/$/, '') === path) a.classList.add('active');
+                });
+            } catch(e) {
+                console.warn('TOC betöltés sikertelen', e);
+            }
+        })();
+    </script>
 
 </body>
 </html>
