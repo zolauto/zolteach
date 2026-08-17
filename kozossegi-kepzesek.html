@@ -3,112 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Háttér Teszt</title>
-<!-- NAVIGÁCIÓS MENÜ CSS (Beillesztendő a <head> részbe vagy a közös CSS fájlba) -->
-<style>
-  .top-nav {
-    position: fixed;
-    top: 0; 
-    left: 0; 
-    right: 0;
-    background: rgba(11, 13, 16, 0.95);
-    padding: 10px 20px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 9999;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-  }
-
-  .nav-logo img {
-    height: 45px;
-    width: auto;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-  }
-
-  .nav-links a {
-    color: #ccff00;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
-    transition: color 0.3s ease;
-  }
-
-  .nav-links a:hover { 
-    color: #ffffff; 
-  }
-
-  /* Aktív menüpont kiemelése */
-  .menu-active {
-    color: #ffb703 !important;
-    font-size: 17px !important;
-    font-weight: 700 !important;
-    cursor: default;
-    text-decoration: none;
-  }
-
-  /* Mobil és tablet nézet (768px alatti kijelzők) */
-  @media (max-width: 768px) {
-    .top-nav { 
-      flex-direction: column; 
-      gap: 10px; 
-      padding: 12px 15px;
-    }
-    .nav-links { 
-      gap: 15px; 
-      flex-wrap: wrap; 
-      justify-content: center; 
-    }
-  }
-</style>
-
-<!-- NAVIGÁCIÓS MENÜ HTML (Beillesztendő a <body> legelejére) -->
-<nav class="top-nav" aria-label="Fő navigáció">
-  <div class="nav-logo">
-    <a href="index.html">
-      <img src="images/zolteach-logo.png" alt="ZolTeach™ System Logo">
-    </a>
-  </div>
-  <div class="nav-links">
-    <a href="index.html">Főoldal</a>
-    <a href="diagnosztika.html" class="menu-active">Diagnosztika</a>
-    <a href="elektrotechnika.html">Elektrotechnika</a>
-    <a href="#ajanlatkeres">Ajánlatkérés</a>
-    <a href="adatkezeles.html">Adatkezelés</a>
-  </div>
-</nav>
-
+    <title>Közösségi Oktatás | ZolTeach™ System</title>
+    <link rel="stylesheet" href="/zolteach/css/style.css">
     
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             background-color: #0b0d10;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e0e0e0;
         }
-        .teszt-hatter {
-            width: 100%;
-            height: 100vh;
-            /* IDE ÍRJA BE A KÉP PONTOS ELÉRÉSI ÚTJÁT, PL: url('images/diagnosztika-hatter.jpg') */
+
+        /* Navigációs menü */
+        .top-nav {
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            right: 0;
+            background: rgba(11, 13, 16, 0.95);
+            padding: 10px 20px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #ccff00;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { 
+            color: #ffffff; 
+        }
+
+        /* Aktív menüpont kiemelése */
+        .menu-active {
+            color: #ffb703 !important;
+            font-size: 17px !important;
+            font-weight: 700 !important;
+            cursor: default;
+            text-decoration: none;
+        }
+
+        /* Főoldal háttér és tartalom pozicionálása */
+        .main-container {
+            min-height: 100vh;
+            padding-top: 80px; /* Hely a fix menüsor alatt */
             background: url('https://zolauto.github.io/zolteach/images/diagnosztika-githubhoz.jpg') no-repeat center center fixed;
             background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 40px;
+        }
+
+        /* Áttetsző tartalom kártya az olvashatóságért */
+        .content-overlay {
+            background: rgba(11, 13, 16, 0.88);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(204, 255, 0, 0.25);
+            border-radius: 12px;
+            padding: 35px;
+            margin-top: 30px;
+            max-width: 950px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .content-overlay h1 {
+            color: #ccff00;
+            margin-top: 0;
+            font-size: 2rem;
+            border-bottom: 2px solid #ffb703;
+            padding-bottom: 10px;
+        }
+
+        /* Mobil és tablet nézet */
+        @media (max-width: 768px) {
+            .top-nav { 
+                flex-direction: column; 
+                gap: 10px; 
+                padding: 12px 15px;
+            }
+            .nav-links { 
+                gap: 15px; 
+                flex-wrap: wrap; 
+                justify-content: center; 
+            }
+            .main-container {
+                padding-top: 130px; /* Nagyobb hely mobilon a többsoros menü miatt */
+            }
         }
     </style>
-    <link rel="stylesheet" href="/zolteach/css/style.css">
 </head>
 <body>
-    <div class="teszt-hatter"></div>
+
+    <!-- NAVIGÁCIÓS MENÜ -->
+    <nav class="top-nav" aria-label="Fő navigáció">
+        <div class="nav-logo">
+            <a href="index.html">
+                <img src="images/zolteach-logo.png" alt="ZolTeach™ System Logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Főoldal</a>
+            <a href="oktatas.html" class="menu-active">Közösségi Oktatás</a>
+            <a href="diagnosztika.html">Diagnosztika</a>
+            <a href="elektrotechnika.html">Elektrotechnika</a>
+            <a href="#ajanlatkeres">Ajánlatkérés</a>
+            <a href="adatkezeles.html">Adatkezelés</a>
+        </div>
+    </nav>
+
+    <!-- HÁTTÉR ÉS TARTALOMKONTÉNER -->
+    <div class="main-container">
+        <div class="content-overlay">
+            <h1>Közösségi Oktatás</h1>
+            <p>A közösségi oktatási modul felülete.</p>
+        </div>
+    </div>
+
 </body>
 </html>
