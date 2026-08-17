@@ -1,35 +1,300 @@
-<section class="modules-section">
-    <h2>Képzési Modulok & Szakmai Tananyagok</h2>
-    <p style="color: #9ca3af; margin-bottom: 40px; font-size: 1.1rem;">
-        Minden tananyagunk elérhető <strong>egyéni (lakossági)</strong>, <strong>vállalati (B2B)</strong> és <strong>közösségi/szervezeti</strong> formában is. A pontos képzési kereteket az ajánlatkéréskor határozzuk meg.
-    </p>
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZolTeach Műszaki Képzési Akadémia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     
-    <div class="grid">
-        <!-- 1. MŰSZAKI MODUL -->
-        <div class="card">
-            <div>
-                <h3>🛠️ Műszaki Diagnosztika & Méréstechnika</h3>
-                <p>Szisztematikus hibakeresési logika, áramköri és elektromos mérések, multiméter- és oszcilloszkóp-használat valós rendszereken.</p>
-            </div>
-            <a href="diagnosztika.html" class="card-link">Diagnosztika tananyag ➔</a>
-        </div>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Ubuntu', sans-serif; 
+            background-color: #0b0d10; 
+            color: #e5e7eb;
+            padding-top: 70px; /* A fix menü miatti eltolás */
+        }
 
-        <!-- 2. DIGITÁLIS BIZTONSÁG MODUL -->
-        <div class="card">
-            <div>
-                <h3>🛡️ Digitális Biztonság & Technológia</h3>
-                <p>A digitális analfabétizmus felszámolása. Online és telefonos csalások (unokázós átverések), jelszókezelés, biztonságos mobil- és netbank-használat.</p>
-            </div>
-            <a href="elektrotechnika.html" class="card-link">Digitális biztonság tananyag ➔</a>
-        </div>
+        /* --- FELSŐ NAVIGÁCIÓS MENÜ --- */
+        .top-nav {
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            right: 0;
+            background: rgba(11, 13, 16, 0.95);
+            padding: 12px 30px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-        <!-- 3. SPECIALIZÁLT & ÜZEMELTETÉSI MODUL -->
-        <div class="card">
-            <div>
-                <h3>🎭 Specializált Műszaki & Üzemeltetési Ismeretek</h3>
-                <p>Hang-, fény- és színpadtechnikai alapismeretek, rendezvénytechnikai üzemeltetés, valamint a kapcsolódó műszaki-pénzügyi alapok.</p>
-            </div>
-            <a href="oktatas.html" class="card-link">Rendezvénytechnika & modulok ➔</a>
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .nav-logo img {
+            height: 38px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            color: #ccff00;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-item:hover { 
+            color: #ffffff; 
+        }
+
+        /* Aktív menüpont stílusa */
+        .menu-active {
+            color: #ffb703 !important;
+            font-weight: 700 !important;
+        }
+
+        /* „Ön ezt az oldalt olvassa” buborék */
+        .active-indicator {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 4px;
+            background-color: #ffffff;
+            color: #111316;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 3px;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            pointer-events: none;
+        }
+
+        /* --- HERO SZEKCIÓ --- */
+        .hero {
+            background: linear-gradient(rgba(11, 13, 16, 0.6), rgba(11, 13, 16, 0.6)), 
+                        url('images/zolteach-hatterkep.jpeg') no-repeat center center/cover;
+            min-height: 55vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px 40px 20px;
+        }
+
+        h1 { 
+            font-family: 'Exo 2', sans-serif; 
+            font-size: 3.5rem; 
+            font-weight: 700;
+            margin-bottom: 24px; 
+            color: #ffffff; 
+            line-height: 1.2;
+        }
+        
+        h1 span { 
+            color: #ffb703;
+        }
+
+        .hero p { 
+            font-size: 1.35rem; 
+            max-width: 900px; 
+            margin-bottom: 48px; 
+            color: #9ca3af;
+            line-height: 1.8; 
+        }
+        
+        .btn {
+            font-family: 'Exo 2', sans-serif;
+            background-color: #ffb703;
+            color: #0b0d10;
+            padding: 16px 36px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover { 
+            background-color: #ffffff; 
+            transform: translateY(-2px);
+        }
+
+        /* --- KÉPZÉSI MODULOK SZEKCIÓ --- */
+        .modules-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .modules-section h2 {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: #15181e;
+            border: 1px solid #222731;
+            border-radius: 12px;
+            padding: 40px 30px;
+            flex: 1;
+            min-width: 280px;
+            max-width: 360px;
+            text-align: left;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ffb703;
+        }
+
+        .card h3 {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.5rem;
+            color: #ffb703;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 1.05rem;
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .card-link {
+            color: #ccff00;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Exo 2', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .card-link:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            body { padding-top: 120px; }
+            .top-nav { flex-direction: column; gap: 12px; padding: 12px 15px; }
+            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .active-indicator { display: none; }
+            h1 { font-size: 2.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FELSŐ MENÜ -->
+    <nav class="top-nav" aria-label="Fő navigáció">
+        <a href="index.html" class="nav-logo">
+            <img src="images/zolteach-logo.png" alt="ZolTeach System Logo" onerror="this.style.display='none'">
+            ZolTeach™ System
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-item menu-active">
+                Főoldal
+                <span class="active-indicator">Ön ezt az oldalt olvassa</span>
+            </a>
+            <a href="diagnosztika.html" class="nav-item">Diagnosztika</a>
+            <a href="elektrotechnika.html" class="nav-item">Elektrotechnika</a>
+            <a href="oktatas.html" class="nav-item">Közösségi Oktatás</a>
+            <a href="#ajanlatkeres" class="nav-item">Ajánlatkérés</a>
+            <a href="adatkezeles.html" class="nav-item">Adatkezelés</a>
         </div>
-    </div>
-</section>
+    </nav>
+
+    <!-- HERO SZEKCIÓ -->
+    <section class="hero">
+        <h1>ZolTeach <br><span>Műszaki Képzési Akadémia</span></h1>
+        <p>
+            Gyakorlatorientált műszaki képzések, céges tréningek és strukturált diagnosztika. <br>
+            Fejlessze a hibakeresési logikát valós rendszereken, elkerülve a felesleges alkatrészcseréket és a kieső időt.
+        </p>
+        <a href="#ajanlatkeres" class="btn">Vállalati ajánlatkérés</a>
+    </section>
+
+    <!-- KÉPZÉSI MODULOK SZEKCIÓ -->
+    <section class="modules-section">
+        <h2>Képzési Modulok & Szakmai Tananyagok</h2>
+        <p style="color: #9ca3af; margin-bottom: 40px; font-size: 1.1rem;">
+            Minden tananyagunk elérhető <strong>egyéni (lakossági)</strong>, <strong>vállalati (B2B)</strong> és <strong>közösségi/szervezeti</strong> formában is. A pontos képzési kereteket az ajánlatkéréskor határozzuk meg.
+        </p>
+        
+        <div class="grid">
+            <!-- 1. MŰSZAKI MODUL -->
+            <div class="card">
+                <div>
+                    <h3>🛠️ Műszaki Diagnosztika & Méréstechnika</h3>
+                    <p>Szisztematikus hibakeresési logika, áramköri és elektromos mérések, multiméter- és oszcilloszkóp-használat valós rendszereken.</p>
+                </div>
+                <a href="diagnosztika.html" class="card-link">Diagnosztika tananyag ➔</a>
+            </div>
+
+            <!-- 2. DIGITÁLIS BIZTONSÁG MODUL -->
+            <div class="card">
+                <div>
+                    <h3>🛡️ Digitális Biztonság & Technológia</h3>
+                    <p>A digitális analfabétizmus felszámolása. Online és telefonos csalások (unokázós átverések), jelszókezelés, biztonságos mobil- és netbank-használat.</p>
+                </div>
+                <a href="elektrotechnika.html" class="card-link">Digitális biztonság tananyag ➔</a>
+            </div>
+
+            <!-- 3. SPECIALIZÁLT & ÜZEMELTETÉSI MODUL -->
+            <div class="card">
+                <div>
+                    <h3>🎭 Specializált Műszaki & Üzemeltetési Ismeretek</h3>
+                    <p>Hang-, fény- és színpadtechnikai alapismeretek, rendezvénytechnikai üzemeltetés, valamint a kapcsolódó műszaki-pénzügyi alapok.</p>
+                </div>
+                <a href="oktatas.html" class="card-link">Rendezvénytechnika & modulok ➔</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
