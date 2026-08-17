@@ -222,7 +222,7 @@
         /* --- OKTATÓI GARANCIA BANNER --- */
         .guarantee-banner {
             max-width: 1200px;
-            margin: 20px auto 80px auto;
+            margin: 20px auto 60px auto;
             padding: 0 20px;
         }
 
@@ -262,6 +262,146 @@
             font-size: 1.05rem;
         }
 
+        /* --- PARTNER ÉS REKLÁM SZEKCIÓ --- */
+        .partners-section {
+            max-width: 1200px;
+            margin: 40px auto 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .partners-section h3 {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.2rem;
+            color: #6b7280;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .partners-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .partner-box {
+            background-color: #15181e;
+            border: 1px dashed #222731;
+            border-radius: 8px;
+            padding: 20px;
+            min-width: 200px;
+            flex: 1;
+            max-width: 260px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #9ca3af;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .partner-box img {
+            max-height: 40px;
+            max-width: 100%;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .partner-box:hover {
+            border-color: #ffb703;
+            color: #ffffff;
+            transform: translateY(-3px);
+            background-color: #1c2029;
+        }
+
+        .partner-box:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* --- LÁBLÉC (FOOTER) --- */
+        footer {
+            background-color: #07080a;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 50px 20px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Exo 2', sans-serif;
+            color: #ffb703;
+            font-size: 1.2rem;
+            margin-bottom: 18px;
+        }
+
+        .footer-col p {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ccff00;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid #15181e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: #ffffff;
+        }
+
         @media (max-width: 768px) {
             body { padding-top: 120px; }
             .top-nav { flex-direction: column; gap: 12px; padding: 12px 15px; }
@@ -269,6 +409,8 @@
             .active-indicator { display: none; }
             h1 { font-size: 2.4rem; }
             .guarantee-box { flex-direction: column; text-align: center; }
+            .footer-container { flex-direction: column; }
+            .footer-bottom { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -351,6 +493,69 @@
             <a href="rolunk.html" class="btn" style="padding: 12px 24px; font-size: 1rem;">Részletes szakmai háttér ➔</a>
         </div>
     </section>
+
+    <!-- PARTNER ÉS REKLÁM SZEKCIÓ -->
+    <section class="partners-section">
+        <h3>Szerződött Partnerek & Támogatók</h3>
+        <div class="partners-grid">
+            <!-- Helyőrző boxok logóknak / hirdetéseknek -->
+            <a href="#" class="partner-box">
+                <!-- Logó kép esetén: <img src="images/partner1.png" alt="Partner 1"> -->
+                <span>Partner Logó Helye 1</span>
+            </a>
+            <a href="#" class="partner-box">
+                <span>Partner Logó Helye 2</span>
+            </a>
+            <a href="#" class="partner-box">
+                <span>Partner Logó Helye 3</span>
+            </a>
+            <a href="#" class="partner-box">
+                <span>Szponzori Banner Helye</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- LÁBLÉC (FOOTER) -->
+    <footer>
+        <div class="footer-container">
+            <!-- 1. OSZLOP: RÓLUNK SUMMARY -->
+            <div class="footer-col">
+                <h4>ZolTeach System</h4>
+                <p>Gyakorlatorientált műszaki képzések, diagnosztikai tréningek és szakmai ismeretterjesztés valós rendszereken.</p>
+                <p style="color: #ffb703; font-weight: 500;">Mérhető tudás. Precíz hibakeresés.</p>
+            </div>
+
+            <!-- 2. OSZLOP: GYORSGYŰJTEMÉNY / LINKÉK -->
+            <div class="footer-col">
+                <h4>Képzések & Modulok</h4>
+                <ul class="footer-links">
+                    <li><a href="diagnosztika.html">Műszaki Diagnosztika & Méréstechnika</a></li>
+                    <li><a href="elektrotechnika.html">Digitális Biztonság & IT</a></li>
+                    <li><a href="kozossegi-kepzesek.html">Rendezvénytechnika & Üzemeltetés</a></li>
+                    <li><a href="rolunk.html">Szakmai Oktatói Háttér</a></li>
+                </ul>
+            </div>
+
+            <!-- 3. OSZLOP: KAPCSOLAT -->
+            <div class="footer-col" id="ajanlatkeres">
+                <h4>Kapcsolat & Ajánlatkérés</h4>
+                <p>📍 Magyarország (Helyszíni / Vállalati tréningek)</p>
+                <p>✉️ <a href="mailto:info@zolteach.hu" style="color: #ccff00; text-decoration: none;">info@zolteach.hu</a></p>
+                <p>🎬 YouTube: <a href="https://youtube.com/@zolteachgaming" target="_blank" rel="noopener" style="color: #9ca3af; text-decoration: underline;">@zolteachgaming</a></p>
+            </div>
+        </div>
+
+        <!-- ALSÓ SÁV -->
+        <div class="footer-bottom">
+            <div>
+                © 2026 ZolTeach™ System. Minden jog fenntartva.
+            </div>
+            <div style="display: flex; gap: 20px;">
+                <a href="#">Adatkezelési Tájékoztató</a>
+                <a href="#">ÁASZF</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
