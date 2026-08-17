@@ -293,27 +293,5 @@
         </div>
     </section>
 
-    <!-- TOC BETÖLTŐ SCRIPT (EREDETI FUNKCIÓ MEGŐRVE) -->
-    <script>
-        (async function(){
-            try {
-                const resp = await fetch('/zolteach/toc.html');
-                if(!resp.ok) return;
-                const html = await resp.text();
-                const wrapper = document.createElement('div');
-                wrapper.innerHTML = html;
-                document.body.insertBefore(wrapper, document.body.firstChild);
-
-                const links = document.querySelectorAll('#site-toc a');
-                const path = location.pathname.replace(/\/$/, '');
-                links.forEach(a => {
-                    if(a.getAttribute('href').replace(/\/$/, '') === path) a.classList.add('active');
-                });
-            } catch(e) {
-                console.warn('TOC betöltés sikertelen', e);
-            }
-        })();
-    </script>
-
 </body>
 </html>
