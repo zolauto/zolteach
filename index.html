@@ -95,34 +95,20 @@
             pointer-events: none;
         }
 
-/* --- HERO SZEKCIÓ (sticky-vel a rácsúszó hatásért) --- */
+        /* --- 1. ALSÓ LAP: HERO SZEKCIÓ (Háttérkép, ami ragad görgetéskor) --- */
         .hero {
             position: sticky;
-            top: 0;
-            background: linear-gradient(rgba(11, 13, 16, 0.6), rgba(11, 13, 16, 0.6)), 
+            top: 70px;
+            background: linear-gradient(rgba(11, 13, 16, 0.65), rgba(11, 13, 16, 0.65)), 
                         url('images/zolteach-hatterkep.jpeg') no-repeat center center/cover;
-            min-height: 55vh;
+            min-height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 60px 20px 40px 20px;
-            overflow: hidden; /* Szükséges a sticky és az after kombinációjához */
-            z-index: 1; /* Alacsonyabb réteg */
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(11, 13, 16, 0.7); /* Sötétítő réteg */
-            z-index: -1; /* A szöveg mögé */
-        }
-
-        .hero > * {
-            position: relative;
-            z-index: 1; /* A szöveg elé */
+            padding: 60px 20px;
+            z-index: 1;
         }
 
         h1 { 
@@ -142,7 +128,7 @@
             font-size: 1.35rem; 
             max-width: 900px; 
             margin-bottom: 48px; 
-            color: #9ca3af;
+            color: #e5e7eb;
             line-height: 1.8; 
         }
         
@@ -162,6 +148,15 @@
         .btn:hover { 
             background-color: #ffffff; 
             transform: translateY(-2px);
+        }
+
+        /* --- 2. FELSŐ LAP: RÁCSÚSZTATOTT SÖTÉT MÁSODIK PAPÍRLAP --- */
+        .main-content {
+            position: relative;
+            z-index: 2;
+            background-color: #0b0d10;
+            box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         /* --- KÉPZÉSI MODULOK SZEKCIÓ --- */
@@ -422,6 +417,7 @@
             .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
             .active-indicator { display: none; }
             h1 { font-size: 2.4rem; }
+            .hero { top: 120px; }
             .guarantee-box { flex-direction: column; text-align: center; }
             .footer-container { flex-direction: column; }
             .footer-bottom { flex-direction: column; text-align: center; }
@@ -449,7 +445,7 @@
         </div>
     </nav>
 
-    <!-- HERO SZEKCIÓ -->
+    <!-- 1. ALSÓ LAP: HERO SZEKCIÓ (Műhelyes fotó, ami helyben marad) -->
     <section class="hero">
         <h1>ZolTeach <br><span>Műszaki Képzési Akadémia</span></h1>
         <p>
@@ -459,95 +455,100 @@
         <a href="#ajanlatkeres" class="btn">Vállalati ajánlatkérés</a>
     </section>
 
-    <!-- KÉPZÉSI MODULOK SZEKCIÓ -->
-    <section class="modules-section">
-        <h2>Képzési Modulok & Szakmai Tananyagok</h2>
-        <p style="color: #9ca3af; margin-bottom: 40px; font-size: 1.1rem;">
-            Minden tananyagunk elérhető <strong>egyéni (lakossági)</strong>, <strong>vállalati (B2B)</strong> és <strong>közösségi/szervezeti</strong> formában is. A pontos képzési kereteket az ajánlatkéréskor határozzuk meg.
-        </p>
-        
-        <div class="grid">
-            <!-- 1. MŰSZAKI MODUL -->
-            <div class="card">
-                <div>
-                    <h3>🛠️ Műszaki Diagnosztika & Méréstechnika</h3>
-                    <p>Szisztematikus hibakeresési logika, áramköri és elektromos mérések, multiméter- és oszcilloszkóp-használat valós rendszereken.</p>
+    <!-- 2. FELSŐ LAP: RÁCSÚSZÓ TARTALOM (Sötét papírlap árnyékkal) -->
+    <div class="main-content">
+
+        <!-- KÉPZÉSI MODULOK SZEKCIÓ -->
+        <section class="modules-section">
+            <h2>Képzési Modulok & Szakmai Tananyagok</h2>
+            <p style="color: #9ca3af; margin-bottom: 40px; font-size: 1.1rem;">
+                Minden tananyagunk elérhető <strong>egyéni (lakossági)</strong>, <strong>vállalati (B2B)</strong> és <strong>közösségi/szervezeti</strong> formában is. A pontos képzési kereteket az ajánlatkéréskor határozzuk meg.
+            </p>
+            
+            <div class="grid">
+                <!-- 1. MŰSZAKI MODUL -->
+                <div class="card">
+                    <div>
+                        <h3>🛠️ Műszaki Diagnosztika & Méréstechnika</h3>
+                        <p>Szisztematikus hibakeresési logika, áramköri és elektromos mérések, multiméter- és oszcilloszkóp-használat valós rendszereken.</p>
+                    </div>
+                    <a href="diagnosztika.html" class="card-link">Diagnosztika tananyag ➔</a>
                 </div>
-                <a href="diagnosztika.html" class="card-link">Diagnosztika tananyag ➔</a>
-            </div>
 
-            <!-- 2. DIGITÁLIS BIZTONSÁG MODUL -->
-            <div class="card">
-                <div>
-                    <h3>🛡️ Digitális Biztonság & Technológia</h3>
-                    <p>A digitális analfabétizmus felszámolása. Online és telefonos csalások (unokázós átverések), jelszókezelés, biztonságos mobil- és netbank-használat.</p>
+                <!-- 2. DIGITÁLIS BIZTONSÁG MODUL -->
+                <div class="card">
+                    <div>
+                        <h3>🛡️ Digitális Biztonság & Technológia</h3>
+                        <p>A digitális analfabétizmus felszámolása. Online és telefonos csalások (unokázós átverések), jelszókezelés, biztonságos mobil- és netbank-használat.</p>
+                    </div>
+                    <a href="elektrotechnika.html" class="card-link">Digitális biztonság tananyag ➔</a>
                 </div>
-                <a href="elektrotechnika.html" class="card-link">Digitális biztonság tananyag ➔</a>
-            </div>
 
-            <!-- 3. SPECIALIZÁLT & ÜZEMELTETÉSI MODUL -->
-            <div class="card">
-                <div>
-                    <h3>🎭 Specializált Műszaki & Üzemeltetési Ismeretek</h3>
-                    <p>Hang-, fény- és színpadtechnikai alapismeretek, rendezvénytechnikai üzemeltetés, valamint a kapcsolódó műszaki-pénzügyi alapok.</p>
+                <!-- 3. SPECIALIZÁLT & ÜZEMELTETÉSI MODUL -->
+                <div class="card">
+                    <div>
+                        <h3>🎭 Specializált Műszaki & Üzemeltetési Ismeretek</h3>
+                        <p>Hang-, fény- és színpadtechnikai alapismeretek, rendezvénytechnikai üzemeltetés, valamint a kapcsolódó műszaki-pénzügyi alapok.</p>
+                    </div>
+                    <a href="kozossegi-kepzesek.html" class="card-link">Rendezvénytechnika & modulok ➔</a>
                 </div>
-                <a href="kozossegi-kepzesek.html" class="card-link">Rendezvénytechnika & modulok ➔</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- OKTATÓI GARANCIA BLOKK -->
-    <section class="guarantee-banner">
-        <div class="guarantee-box">
-            <div>
-                <span class="badge">OKTATÓI GARANCIA</span>
-                <h3>Közúti Járműgépész Technikus & Szakoktató</h3>
-                <p>Több mint 20 év igazolható gépészeti, diagnosztikai és szakoktatói tapasztalat.</p>
+        <!-- OKTATÓI GARANCIA BLOKK -->
+        <section class="guarantee-banner">
+            <div class="guarantee-box">
+                <div>
+                    <span class="badge">OKTATÓI GARANCIA</span>
+                    <h3>Közúti Járműgépész Technikus & Szakoktató</h3>
+                    <p>Több mint 20 év igazolható gépészeti, diagnosztikai és szakoktatói tapasztalat.</p>
+                </div>
+                <a href="rolunk.html" class="btn" style="padding: 12px 24px; font-size: 1rem;">Részletes szakmai háttér ➔</a>
             </div>
-            <a href="rolunk.html" class="btn" style="padding: 12px 24px; font-size: 1rem;">Részletes szakmai háttér ➔</a>
-        </div>
-    </section>
+        </section>
 
-    <!-- PARTNER ÉS REKLÁM SZEKCIÓ (Központilag a partners.json-ból) -->
-    <section class="partners-section" id="partners-container"></section>
+        <!-- PARTNER ÉS REKLÁM SZEKCIÓ -->
+        <section class="partners-section" id="partners-container"></section>
 
-    <!-- LÁBLÉC (FOOTER) -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h4>ZolTeach System</h4>
-                <p>Gyakorlatorientált műszaki képzések, diagnosztikai tréningek és szakmai ismeretterjesztés valós rendszereken.</p>
-                <p style="color: #ffb703; font-weight: 500;">Mérhető tudás. Precíz hibakeresés.</p>
+        <!-- LÁBLÉC (FOOTER) -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>ZolTeach System</h4>
+                    <p>Gyakorlatorientált műszaki képzések, diagnosztikai tréningek és szakmai ismeretterjesztés valós rendszereken.</p>
+                    <p style="color: #ffb703; font-weight: 500;">Mérhető tudás. Precíz hibakeresés.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Képzések & Modulok</h4>
+                    <ul class="footer-links">
+                        <li><a href="diagnosztika.html">Műszaki Diagnosztika & Méréstechnika</a></li>
+                        <li><a href="elektrotechnika.html">Digitális Biztonság & IT</a></li>
+                        <li><a href="kozossegi-kepzesek.html">Rendezvénytechnika & Üzemeltetés</a></li>
+                        <li><a href="rolunk.html">Szakmai Oktatói Háttér</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col" id="ajanlatkeres">
+                    <h4>Kapcsolat & Ajánlatkérés</h4>
+                    <p>📍 Magyarország (Helyszíni / Vállalati tréningek)</p>
+                    <p>✉️ <a href="mailto:info@zolteach.hu" style="color: #ccff00; text-decoration: none;">info@zolteach.hu</a></p>
+                    <p>🎬 YouTube: <a href="https://youtube.com/@zolteachgaming" target="_blank" rel="noopener" style="color: #9ca3af; text-decoration: underline;">@zolteachgaming</a></p>
+                </div>
             </div>
 
-            <div class="footer-col">
-                <h4>Képzések & Modulok</h4>
-                <ul class="footer-links">
-                    <li><a href="diagnosztika.html">Műszaki Diagnosztika & Méréstechnika</a></li>
-                    <li><a href="elektrotechnika.html">Digitális Biztonság & IT</a></li>
-                    <li><a href="kozossegi-kepzesek.html">Rendezvénytechnika & Üzemeltetés</a></li>
-                    <li><a href="rolunk.html">Szakmai Oktatói Háttér</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <div>
+                    © 2026 ZolTeach™ System. Minden jog fenntartva.
+                </div>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#">Adatkezelési Tájékoztató</a>
+                    <a href="#">ÁSZF</a>
+                </div>
             </div>
+        </footer>
 
-            <div class="footer-col" id="ajanlatkeres">
-                <h4>Kapcsolat & Ajánlatkérés</h4>
-                <p>📍 Magyarország (Helyszíni / Vállalati tréningek)</p>
-                <p>✉️ <a href="mailto:info@zolteach.hu" style="color: #ccff00; text-decoration: none;">info@zolteach.hu</a></p>
-                <p>🎬 YouTube: <a href="https://youtube.com/@zolteachgaming" target="_blank" rel="noopener" style="color: #9ca3af; text-decoration: underline;">@zolteachgaming</a></p>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <div>
-                © 2026 ZolTeach™ System. Minden jog fenntartva.
-            </div>
-            <div style="display: flex; gap: 20px;">
-                <a href="#">Adatkezelési Tájékoztató</a>
-                <a href="#">ÁSZF</a>
-            </div>
-        </div>
-    </footer>
+    </div>
 
     <!-- DYNAMIC PARTNER LOADER SCRIPT -->
     <script src="partners.js"></script>
