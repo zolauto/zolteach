@@ -289,12 +289,12 @@
 
         .partner-box {
             background-color: #15181e;
-            border: 1px dashed #222731;
+            border: 1px solid #222731;
             border-radius: 8px;
             padding: 20px;
-            min-width: 200px;
+            min-width: 220px;
             flex: 1;
-            max-width: 260px;
+            max-width: 320px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -304,12 +304,11 @@
             transition: all 0.3s ease;
         }
 
-        .partner-box img {
-            max-height: 40px;
-            max-width: 100%;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: all 0.3s ease;
+        .partner-box.promo-box {
+            border: 1px dashed #ffb703;
+            color: #ffb703;
+            font-weight: 500;
+            text-align: center;
         }
 
         .partner-box:hover {
@@ -319,9 +318,8 @@
             background-color: #1c2029;
         }
 
-        .partner-box:hover img {
-            filter: grayscale(0%);
-            opacity: 1;
+        .partner-box.promo-box:hover {
+            background-color: rgba(255, 183, 3, 0.1);
         }
 
         /* --- LÁBLÉC (FOOTER) --- */
@@ -494,38 +492,18 @@
         </div>
     </section>
 
-    <!-- PARTNER ÉS REKLÁM SZEKCIÓ -->
-    <section class="partners-section">
-        <h3>Szerződött Partnerek & Támogatók</h3>
-        <div class="partners-grid">
-            <!-- Helyőrző boxok logóknak / hirdetéseknek -->
-            <a href="#" class="partner-box">
-                <!-- Logó kép esetén: <img src="images/partner1.png" alt="Partner 1"> -->
-                <span>Partner Logó Helye 1</span>
-            </a>
-            <a href="#" class="partner-box">
-                <span>Partner Logó Helye 2</span>
-            </a>
-            <a href="#" class="partner-box">
-                <span>Partner Logó Helye 3</span>
-            </a>
-            <a href="#" class="partner-box">
-                <span>Szponzori Banner Helye</span>
-            </a>
-        </div>
-    </section>
+    <!-- PARTNER ÉS REKLÁM SZEKCIÓ (Központilag a partners.json-ból) -->
+    <section class="partners-section" id="partners-container"></section>
 
     <!-- LÁBLÉC (FOOTER) -->
     <footer>
         <div class="footer-container">
-            <!-- 1. OSZLOP: RÓLUNK SUMMARY -->
             <div class="footer-col">
                 <h4>ZolTeach System</h4>
                 <p>Gyakorlatorientált műszaki képzések, diagnosztikai tréningek és szakmai ismeretterjesztés valós rendszereken.</p>
                 <p style="color: #ffb703; font-weight: 500;">Mérhető tudás. Precíz hibakeresés.</p>
             </div>
 
-            <!-- 2. OSZLOP: GYORSGYŰJTEMÉNY / LINKÉK -->
             <div class="footer-col">
                 <h4>Képzések & Modulok</h4>
                 <ul class="footer-links">
@@ -536,7 +514,6 @@
                 </ul>
             </div>
 
-            <!-- 3. OSZLOP: KAPCSOLAT -->
             <div class="footer-col" id="ajanlatkeres">
                 <h4>Kapcsolat & Ajánlatkérés</h4>
                 <p>📍 Magyarország (Helyszíni / Vállalati tréningek)</p>
@@ -545,17 +522,18 @@
             </div>
         </div>
 
-        <!-- ALSÓ SÁV -->
         <div class="footer-bottom">
             <div>
                 © 2026 ZolTeach™ System. Minden jog fenntartva.
             </div>
             <div style="display: flex; gap: 20px;">
                 <a href="#">Adatkezelési Tájékoztató</a>
-                <a href="#">ÁASZF</a>
+                <a href="#">ÁSZF</a>
             </div>
         </div>
     </footer>
 
+    <!-- DYNAMIC PARTNER LOADER SCRIPT -->
+    <script src="partners.js"></script>
 </body>
 </html>
