@@ -96,18 +96,32 @@
         }
 
         /* --- HERO SZEKCIÓ (FIXÁLT HÁTTÉRREL) --- */
-        .hero {
-            background: linear-gradient(rgba(11, 13, 16, 0.6), rgba(11, 13, 16, 0.6)), 
-                        url('images/zolteach-hatterkep.jpeg') no-repeat center center/cover;
-            
-            min-height: 55vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 60px 20px 40px 20px;
-        }
+        /* 1. ALSÓ LAP: A műhelyes háttérkép (helyben marad/ragad) */
+.hero {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(rgba(11, 13, 16, 0.6), rgba(11, 13, 16, 0.6)), 
+                url('images/zolteach-hatterkep.jpeg') no-repeat center center/cover;
+    min-height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px 60px 20px;
+    z-index: 1; /* Ez van alul */
+}
+
+/* 2. FELSŐ LAP: A fekete tartalom, ami rácsúszik a képre */
+/* (A hero után következő szekcióra vonatkozik) */
+.hero + section, 
+main, 
+.container-modules { 
+    position: relative;
+    z-index: 2; /* Ez csúszik RÁ a képre */
+    background-color: #0b0d10; /* A sötét háttér */
+    box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.9); /* Árnyék a lap szélén a mélységérzetért */
+}
 
         h1 { 
             font-family: 'Exo 2', sans-serif; 
