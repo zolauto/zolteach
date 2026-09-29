@@ -241,7 +241,7 @@
 .hero-inner { display:flex; gap:30px; align-items:stretch; }
 .hero-left {
   flex:1;
-  background-image: url('/assets/diagnosztika-bg.jpg'); /* cseréld a képre */
+  background-image: url('images/diagnosztika-githubhoz.jpg');
   background-size:cover; background-position:center;
   border-radius:8px;
   min-height:420px;
@@ -253,13 +253,46 @@
 .lead { margin:0 0 18px; color:#d1d5db; }
 
 .compact-form { background:rgba(255,255,255,0.03); padding:18px; border-radius:8px; box-shadow:0 6px 18px rgba(2,6,23,0.6); }
-.form-row { margin-bottom:10px; display:flex; flex-direction:column; }
+.form-row { margin-bottom:14px; display:flex; flex-direction:column; }
 .form-row label { font-size:13px; color:#e5e7eb; margin-bottom:6px; }
-.form-row input, .form-row select, .form-row textarea {
+.form-row input[type="text"], .form-row input[type="email"], .form-row textarea {
   padding:10px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.08);
   background:rgba(255,255,255,0.02); color:#fff; font-size:14px;
 }
-.form-row input:focus, .form-row select:focus, .form-row textarea:focus { outline:none; border-color:#60a5fa; box-shadow:0 0 0 3px rgba(96,165,250,0.08); }
+.form-row input:focus, .form-row textarea:focus { outline:none; border-color:#60a5fa; box-shadow:0 0 0 3px rgba(96,165,250,0.08); }
+
+/* Rádiógombok csoportos stílusa */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #e5e7eb;
+  cursor: pointer;
+  font-weight: normal !important;
+  margin-bottom: 0 !important;
+}
+
+.radio-label input[type="radio"] {
+  accent-color: #ff7a00;
+  cursor: pointer;
+}
+
+/* Egyedi létszám mező rejtése/megjelenítése */
+#custom-size-container {
+  display: none;
+  margin-top: 8px;
+}
 
 .form-note { font-size:13px; color:#9ca3af; margin:8px 0 12px; }
 .form-actions { display:flex; gap:10px; }
@@ -283,10 +316,8 @@
 @media (max-width:480px) {
   .hero-text h1 { font-size:20px; }
   .compact-form { padding:12px; }
-  .form-row input, .form-row select, .form-row textarea { padding:8px; font-size:13px; }
+  .form-row input[type="text"], .form-row input[type="email"], .form-row textarea { padding:8px; font-size:13px; }
 }
-
-    
   </style>
 </head>
 <body>
@@ -335,13 +366,8 @@
       </div>
     </div>
 
-    <aside class="banner-sidebar">
-        <div class="banner-box">Hirdetés helye<br>(300x250 banner)</div>
-        <div class="banner-box">Hirdetés helye<br>(300x250 banner)</div>
-    </aside>
-
 <!-- uj-wix-urlap - kezdete -->
-<!-- START: Diagnosztika hero + form (replace existing hero section) -->
+<!-- START: Diagnosztika hero + form -->
 <section id="diagnosztika-hero" class="hero-section">
   <div class="hero-inner container">
     <div class="hero-left" aria-hidden="true"></div>
@@ -349,7 +375,7 @@
     <div class="hero-right">
       <div class="hero-text">
         <h1>Diagnosztika – Járművek és ipari rendszerek hibakeresése</h1>
-        <p class="lead">Gyakorlatorientált diagnosztikai képzés műhelyspecifikus gyakorlatokkal, mérőműszerek és valós esettanulmányok.</p>
+        <p class="lead">Gyakorlatorientált diagnosztikai képzés műhelyspecifikus gyakorlatokkal, mérőműszerekkel és valós esettanulmányokkal.</p>
       </div>
 
       <form id="contact-form" class="compact-form" novalidate>
@@ -368,27 +394,49 @@
           <input id="email" name="email" type="email" required />
         </div>
 
+        <!-- Képzési mód rádiógombokkal -->
         <div class="form-row">
-          <label for="mode">Képzési mód <span class="required">*</span></label>
-          <select id="mode" name="mode" required>
-            <option value="">Válassz</option>
-            <option>Helyszíni, vállalati oktatás</option>
-            <option>ZolTeach műhelyben tartott képzés</option>
-            <option>Vegyes (helyszíni + műhely)</option>
-            <option>Online elméleti modul</option>
-          </select>
+          <label>Képzési mód <span class="required">*</span></label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="mode" value="Vállalati" required /> Vállalati oktatás
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="mode" value="Nagyvállalati saját helyszínen" /> Nagyvállalati (saját oktató helységében)
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="mode" value="Lakossági" /> Lakossági képzés
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="mode" value="Közösségi" /> Közösségi képzés
+            </label>
+          </div>
         </div>
 
+        <!-- Tanulók létszáma rádiógombokkal és egyedi mezővel -->
         <div class="form-row">
-          <label for="size">Tanulók létszáma <span class="required">*</span></label>
-          <select id="size" name="size" required>
-            <option value="">Válassz</option>
-            <option>1–5 fő</option>
-            <option>6–10 fő</option>
-            <option>11–20 fő</option>
-            <option>20+ fő</option>
-            <option>Egyéb</option>
-          </select>
+          <label>Tanulók létszáma <span class="required">*</span></label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="size" value="1-5" onclick="toggleCustomSize(false)" required /> 1–5 fő
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="size" value="5-15" onclick="toggleCustomSize(false)" /> 5–15 fő
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="size" value="20-40" onclick="toggleCustomSize(false)" /> 20–40 fő
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="size" value="Csoportosan" onclick="toggleCustomSize(false)" /> Csoportosan
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="size" value="Egyedi" onclick="toggleCustomSize(true)" /> Egyedi nagyságú létszám
+            </label>
+          </div>
+          <!-- Rejtett egyedi létszám mező -->
+          <div id="custom-size-container">
+            <input type="text" id="custom_size_input" name="custom_size" placeholder="Kérjük, adja meg a pontos létszámot..." />
+          </div>
         </div>
 
         <div class="form-row">
@@ -405,18 +453,17 @@
     </div>
   </div>
 
-  <!-- bannerek container: az űrlap alá kerül -->
+  <!-- bannerek container -->
   <div class="hero-banners container" id="hero-banners">
     <div class="banner">Banner 1 tartalom</div>
     <div class="banner">Banner 2 tartalom</div>
   </div>
 </section>
 <!-- END: Diagnosztika hero + form -->
-
 <!-- uj-wix-urlap - vege -->
 
-    
   </main>
+
 <!-- popup - ablak - diagnosztika jegyzőkönyv kezdete -->
 <div id="popup-jegyzokonyv" class="popup-overlay">
     <div class="popup-content">
@@ -453,6 +500,7 @@
     padding: 20px;
     border-radius: 8px;
     position: relative;
+    color: #111;
 }
 
 /* Bezáró gomb */
@@ -481,6 +529,19 @@
 <script>
 function megnyitPopup() {
     document.getElementById('popup-jegyzokonyv').style.display = 'block';
+}
+
+/* Egyedi létszám mező megjelenítése / elrejtése */
+function toggleCustomSize(show) {
+    const container = document.getElementById('custom-size-container');
+    const inputField = document.getElementById('custom_size_input');
+    if (show) {
+        container.style.display = 'block';
+        inputField.focus();
+    } else {
+        container.style.display = 'none';
+        inputField.value = '';
+    }
 }
 </script>
 <!-- popup - ablak - diagnosztika jegyzőkönyv vége -->
