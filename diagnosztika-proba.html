@@ -1,4 +1,182 @@
-<!-- FŐ TARTALOM (Bal oldal elrejtve, Jobb oldal középre igazítva) -->
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Kapcsolatfelvétel – ZolTeach™ System</title>
+    <style>
+        /* Oldal alap beállítások & sötét téma */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #0d1117;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Fő tartalom középre igazítva */
+        .main-content-centered {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Jobb oldali panel / űrlap konténer */
+        .right-panel-only {
+            width: 100%;
+            max-width: 650px;
+            background: rgba(22, 27, 34, 0.95);
+            padding: 35px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            box-sizing: border-box;
+        }
+
+        /* Form elemek formázása */
+        .right-panel-only h2 {
+            margin-top: 0;
+            color: #f0f6fc;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #c9d1d9;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            color: #ffffff;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #f0883e;
+        }
+
+        .form-note {
+            font-size: 0.85rem;
+            color: #8b949e;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        .submit-btn {
+            background-color: #f0883e;
+            color: #ffffff;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #db7b33;
+        }
+
+        /* Popup konténer */
+        .popup-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Szabványos ZolTeach lábléc */
+        .site-footer {
+            background-color: #0b0f15;
+            color: #c9d1d9;
+            padding: 40px 20px 20px 20px;
+            border-top: 1px solid #30363d;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h3 {
+            color: #f0f6fc;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-col p, .footer-col ul {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0 0 10px 0;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #21262d;
+            font-size: 0.85rem;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FŐ TARTALOM -->
     <main class="main-content-centered">
         <div class="right-panel-only">
             <!-- Ide jön a jobb oldali panel tartalma (pl. az űrlap) -->
@@ -63,3 +241,6 @@
             &copy; 2026 ZolTeach™ System. Minden jog fenntartva.
         </div>
     </footer>
+
+</body>
+</html>
