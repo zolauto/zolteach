@@ -1,161 +1,344 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <title>Diagnosztika – ZolTeach™ Műszaki Mesterakadémia</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnosztika — ZolTeach™ Műszaki Képzési Akadémia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Exo+2:wght@600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+
     <style>
-        /* Oldal alap beállítások & sötét téma */
-        html, body {
-            height: 100%;
+        /* CSS RESET ÉS ALAPSTÍLUSOK */
+        * {
+            box-sizing: border-box;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            background-color: #0d1117;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Fő tartalom konténer: középre igazított, szellős egyoszlopos elrendezés */
-        .main-content-centered {
-            flex: 1;
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: #0b0d10;
+            font-family: 'Ubuntu', Arial, sans-serif;
+            color: #e5e7eb;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
+            padding-top: 80px;
+        }
+
+        /* HÁTTÉRKÉP RÖGZÍTETT RÉTEG */
+        .bg {
+            position: fixed;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+                              url('images/diagnosztika-githubhoz.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            z-index: 0;
+        }
+
+        /* FELSŐ NAVIGÁCIÓS MENÜ */
+        .top-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(11, 13, 16, 0.95);
+            padding: 12px 30px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .nav-logo img {
+            height: 38px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #ccff00;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: #ffffff; }
+
+        .menu-active {
+            color: #ffb703 !important;
+            font-weight: 700 !important;
+        }
+
+        /* FŐ TARTALMI KONTÉNER (Középre igazított, szellős egyoszlopos elrendezés) */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 800px;
+            margin: 30px auto;
+            position: relative;
+            z-index: 2;
             width: 100%;
-            box-sizing: border-box;
-            gap: 30px; /* EZ BIZTOSÍTJA A PONTOS TÉRKÖZT A KÁRTYÁK KÖZÖTT */
+            padding: 0 20px;
+            gap: 35px;
+            flex: 1;
         }
 
-        /* Egységes kártya stílus (minden doboz erre épül) */
-        .content-box {
-            width: 100%;
-            max-width: 750px;
-            background: rgba(22, 27, 34, 0.95);
-            padding: 35px;
-            border-radius: 8px;
-            border: 1px solid #30363d;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-            box-sizing: border-box;
+        .content-wrapper {
+            background: rgba(21, 24, 30, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
-        /* Címszövegek */
-        .content-box h2 {
-            margin-top: 0;
-            color: #f0f6fc;
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #30363d;
-            padding-bottom: 10px;
+        h1 {
+            text-align: center;
+            font-family: 'Exo 2', sans-serif;
+            font-size: clamp(24px, 4vw, 34px);
+            margin-bottom: 10px;
+            color: #ffffff;
         }
 
-        .academy-subtitle {
-            color: #f0883e;
-            font-weight: bold;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .content-box p {
-            color: #c9d1d9;
-            line-height: 1.6;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        .content-box ul {
-            color: #c9d1d9;
-            padding-left: 20px;
-            line-height: 1.5;
-            font-size: 0.95rem;
-        }
-
-        .content-box li {
-            margin-bottom: 8px;
-        }
-
-        /* Form elemek formázása */
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #c9d1d9;
+        h2 {
+            text-align: center;
+            font-family: 'Exo 2', sans-serif;
+            font-size: clamp(16px, 2.5vw, 20px);
+            margin-bottom: 30px;
+            color: #ccff00;
             font-weight: 500;
         }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            background: #0d1117;
-            border: 1px solid #30363d;
-            color: #ffffff;
+        p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #e5e7eb;
+        }
+
+        .section-title {
+            color: #ccff00;
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 700;
+            margin: 30px 0 15px 0;
+            font-size: 1.25rem;
+            border-left: 4px solid #ffb703;
+            padding-left: 10px;
+        }
+
+        .benefits-list {
+            margin: 20px 0;
+        }
+
+        .benefits-list li {
+            margin-bottom: 12px;
+            list-style: none;
+            position: relative;
+            padding-left: 30px;
+            color: #e5e7eb;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 5px;
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 35px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-back, .btn-ajanlas {
+            display: inline-block;
+            padding: 12px 24px;
             border-radius: 6px;
-            box-sizing: border-box;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s;
+            cursor: pointer;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .btn-back { background-color: #ff6600; color: #ffffff; }
+        .btn-back:hover { transform: translateY(-2px); background-color: #e05b00; }
+
+        .btn-ajanlas { background-color: #ffb703; color: #0b0d10; }
+        .btn-ajanlas:hover { transform: translateY(-2px); background-color: #ffffff; }
+
+        /* HERO & KAPCSOLATFELVÉTELI SZEKCIÓ */
+        .hero-section {
+            background: rgba(15, 23, 32, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .hero-inner {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        /* A bal oldali kép rejtve marad */
+        .hero-left {
+            display: none;
+        }
+
+        .hero-right {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-text h1 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .lead {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #d1d5db;
             font-size: 1rem;
         }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        .compact-form {
+            background: rgba(11, 13, 16, 0.7);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 183, 3, 0.3);
+        }
+
+        .form-row {
+            margin-bottom: 14px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-row label {
+            font-size: 13px;
+            color: #ccff00;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .form-row input, .form-row select, .form-row textarea {
+            padding: 10px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: #1f242e;
+            color: #fff;
+            font-size: 14px;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        .form-row input:focus, .form-row select:focus, .form-row textarea:focus {
             outline: none;
-            border-color: #f0883e;
+            border-color: #ffb703;
+            box-shadow: 0 0 0 3px rgba(255, 183, 3, 0.15);
         }
 
         .form-note {
-            font-size: 0.85rem;
-            color: #8b949e;
-            margin-bottom: 25px;
-            line-height: 1.4;
+            font-size: 12px;
+            color: #9ca3af;
+            margin: 10px 0 15px;
+            line-height: 1.5;
         }
 
-        .submit-btn {
-            background-color: #f0883e;
-            color: #ffffff;
+        .btn-primary {
+            background: #ffb703;
+            color: #0b0d10;
             border: none;
-            padding: 14px 20px;
+            padding: 12px 16px;
             border-radius: 6px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 700;
+            font-family: 'Exo 2', sans-serif;
             width: 100%;
-            font-size: 1rem;
             transition: background-color 0.2s;
         }
 
-        .submit-btn:hover {
-            background-color: #db7b33;
+        .btn-primary:hover { background: #ffffff; }
+
+        /* SZERZŐDÖTT PARTNEREK & TÁMOGATÓK SZEKCIÓ */
+        .partners-section {
+            background: rgba(21, 24, 30, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
-        /* Popup konténer */
-        .popup-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+        .partners-title {
+            color: #ccff00;
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .partners-grid {
             display: flex;
+            gap: 20px;
             justify-content: center;
-            align-items: center;
-            z-index: 1000;
+            flex-wrap: wrap;
         }
 
-        /* Szabványos ZolTeach lábléc */
+        .partner-card {
+            flex: 1;
+            min-width: 280px;
+            background: rgba(11, 13, 16, 0.6);
+            border: 1px dashed rgba(255, 183, 3, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            color: #e5e7eb;
+            font-size: 0.95rem; /* Javítva a korábbi gépelési hiba */
+        }
+
+        /* LÁBLÉC SZEKCIÓ */
         .site-footer {
-            background-color: #0b0f15;
-            color: #c9d1d9;
-            padding: 40px 20px 20px 20px;
-            border-top: 1px solid #30363d;
-            width: 100%;
-            box-sizing: border-box;
+            background: rgba(7, 10, 14, 0.98);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 20px 20px;
             margin-top: auto;
+            position: relative;
+            z-index: 2;
         }
 
         .footer-content {
@@ -164,99 +347,223 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .footer-col h3 {
-            color: #f0f6fc;
+            color: #ccff00;
+            font-family: 'Exo 2', sans-serif;
             font-size: 1.1rem;
             margin-bottom: 15px;
         }
 
-        .footer-col p, .footer-col ul {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin: 0 0 10px 0;
-        }
-
-        .footer-col ul {
+        .footer-col p, .footer-col ul li {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            line-height: 1.6;
             list-style: none;
-            padding: 0;
-        }
-
-        .footer-col ul li {
             margin-bottom: 8px;
         }
 
         .footer-col a {
-            color: #58a6ff;
+            color: #e5e7eb;
             text-decoration: none;
+            transition: color 0.2s;
         }
 
-        .footer-col a:hover {
-            text-decoration: underline;
-        }
+        .footer-col a:hover { color: #ffb703; }
 
         .footer-bottom {
+            max-width: 1200px;
+            margin: 20px auto 0;
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #21262d;
             font-size: 0.85rem;
-            color: #8b949e;
+            color: #6b7280;
+        }
+
+        /* POPUP SZEKCIÓ */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: #15181e;
+            border: 1px solid #ffb703;
+            width: 90%;
+            max-width: 850px;
+            padding: 30px;
+            border-radius: 12px;
+            position: relative;
+            color: #fff;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #ffb703;
+        }
+
+        .popup-image {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            border-radius: 6px;
+            margin-top: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* RESZPONZÍV TÖRÉSPONTOK */
+        @media (max-width: 900px) {
+            body { padding-top: 110px; }
+            .top-nav { flex-direction: column; gap: 10px; padding: 10px 15px; }
+            .nav-links { gap: 12px; flex-wrap: wrap; justify-content: center; font-size: 13px; }
+        }
+
+        @media (max-width: 480px) {
+            .content-wrapper, .hero-section, .partners-section { padding: 20px; }
+            h1 { font-size: 22px; }
+            .compact-form { padding: 15px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- FŐ TARTALOM (Középre igazított oszlop, szellős kártyákkal) -->
-    <main class="main-content-centered">
+    <!-- HÁTTÉR SZEKCIÓ -->
+    <div class="bg" aria-hidden="true"></div>
+
+    <!-- FELSŐ NAVIGÁCIÓS MENÜ -->
+    <nav class="top-nav" aria-label="Fő navigáció">
+        <a href="index.html" class="nav-logo">
+            <img src="images/zolteach-logo.png" alt="ZolTeach™ System Logo" onerror="this.style.display='none'">
+            ZolTeach™ System
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Főoldal</a>
+            <span class="menu-active" title="Ön ezt az oldalt olvassa">Diagnosztika</span>
+            <a href="elektrotechnika.html">Elektrotechnika</a>
+            <a href="kozossegi-oktatas.html">Közösségi Oktatás</a>
+            <a href="rolunk.html">Rólunk</a>
+            <a href="#ajanlatkeres">Ajánlatkérés</a>
+        </div>
+    </nav>
+
+    <!-- FŐ TARTALOM SZEKCIÓ -->
+    <main class="main-container">
         
-        <!-- 1. FELSŐ KÁRTYA: Strukturált Gépjármű Diagnosztika -->
-        <section class="content-box">
-            <div class="academy-subtitle">ZolTeach™ Műszaki Mesterakadémia</div>
-            <h2>Strukturált Gépjármű Diagnosztika</h2>
-            <p>A modern járműdiagnosztika nem csupán hibakódok olvasása, hanem a tünetek mögötti fizikai folyamatok megértése. A képzés célja, hogy a résztvevők átlássák a rendszerek összefüggéseit a valós mérési adatok alapján.</p>
-            <ul>
-                <li><strong>Képzési Célcsoport:</strong> Gyakorló autószerelők és szakemberek, akik sablonok helyett mérnöki logikával akarják feltárni a hibákat.</li>
-                <li><strong>Moduláris felépítés:</strong> Egymásra épülő lépések a méréstechnikától a komplex gépjárműgépészetig.</li>
+        <!-- SZAKMAI BEMUTATÓ BLOKK -->
+        <div class="content-wrapper">
+            <h1>Strukturált Gépjármű Diagnosztika</h1>
+            <h2>ZolTeach™ Műszaki Képzési Akadémia</h2>
+
+            <p>A modern járműdiagnosztika ma már nem alapulhat szoftveres hibakód-olvasáson és találomra történő alkatrész-cseréken. A sikeres és költséghatékony üzemeltetés alapja a <strong>szisztematikus, mérési jegyzőkönyvekre épülő hibakeresési protokoll</strong> elsajátítása a ZolTeach™ System segítségével.</p>
+
+            <div class="section-title">Képzési Fókuszpontok</div>
+            <p>Programunkat kifejezetten úgy alakítottuk ki, hogy a meglévő, az újonnan belépő műszaki állomány, vagy a fejlődni vágyó magánszemélyek azonnal konvertálható tudást kapjanak az új eszközök és diagnosztikai rendszerek üzemeltetéséhez.</p>
+
+            <ul class="benefits-list">
+                <li><strong>Célirányos folyamatok:</strong> Ismeretlen vagy új diagnosztikai céleszközök gyors, magabiztos kezelésének betanítása.</li>
+                <li><strong>Rendszerszintű átképzés:</strong> Más műszaki vagy elméleti területről érkező munkaerő gyakorlatias, biztonságos integrálása a diagnosztikai munkafolyamatokba.</li>
+                <li><strong>Veszteségcsökkentés:</strong> A hibás diagnózisból eredő téves alkatrész-rendelések és a szükségtelen állásidők minimalizálása szigorú mérési logikával.</li>
             </ul>
+
+            <div class="section-title">Moduláris felépítés a jövőnek</div>
+            <p>Ez a diagnosztikai modul mindössze az alapját képezi egy komplexebb, többlépcsős képzési rendszernek. Igény szerint a tréninget hozzáigazítjuk a meglévő vagy az újonnan beszerzett berendezések egyedi technológiai specifikációihoz.</p>
+
+            <div class="button-group">
+                <a href="index.html" class="btn-back">← Vissza a főoldalra</a>
+                <a href="#ajanlatkeres" class="btn-ajanlas">📋 Ajánlatkérés a lap alján</a>
+            </div>
+        </div>
+
+        <!-- HERO & KAPCSOLATFELVÉTELI SZEKCIÓ -->
+        <section id="ajanlatkeres" class="hero-section">
+            <div class="hero-inner">
+                <div class="hero-left" aria-hidden="true"></div>
+
+                <div class="hero-right">
+                    <div class="hero-text">
+                        <h1>Diagnosztika – Járművek és ipari rendszerek hibakeresése</h1>
+                        <p class="lead">Gyakorlatorientált diagnosztikai képzés műhelyspecifikus gyakorlatokkal, mérőműszerekkel és valós esettanulmányokkal.</p>
+                    </div>
+
+                    <form id="contact-form" class="compact-form" novalidate>
+                        <div class="form-row">
+                            <label for="name">Név *</label>
+                            <input id="name" name="name" type="text" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="company">Cégnév</label>
+                            <input id="company" name="company" type="text">
+                        </div>
+
+                        <div class="form-row">
+                            <label for="email">Email cím *</label>
+                            <input id="email" name="email" type="email" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="mode">Képzési mód *</label>
+                            <select id="mode" name="mode" required>
+                                <option value="">Válassz</option>
+                                <option>Helyszíni, vállalati oktatás</option>
+                                <option>ZolTeach műhelyben tartott képzés</option>
+                                <option>Vegyes (helyszíni + műhely)</option>
+                                <option>Online elméleti modul</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="size">Tanulók létszáma *</label>
+                            <select id="size" name="size" required>
+                                <option value="">Válassz</option>
+                                <option>1–5 fő</option>
+                                <option>6–10 fő</option>
+                                <option>11–20 fő</option>
+                                <option>20+ fő</option>
+                                <option>Egyéb</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="message">Üzenet</label>
+                            <textarea id="message" name="message" rows="3"></textarea>
+                        </div>
+
+                        <p class="form-note">A kapcsolatfelvétel semmilyen kötelezettséggel nem jár. Az űrlap elküldése után kollégánk egyeztet Önnel a részletekről.</p>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Kapcsolatfelvétel elküldése</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </section>
 
-        <!-- 2. ALSÓ KÁRTYA: Kapcsolatfelvételi Űrlap -->
-        <section class="content-box">
-            <form class="contact-form">
-                <h2>Csomagokártya – Járművek és ipari rendszerek hibakeresése</h2>
-                <div class="form-group">
-                    <label>Email cím *</label>
-                    <input type="email" required>
+        <!-- SZERZŐDÖTT PARTNEREK & TÁMOGATÓK SZEKCIÓ -->
+        <section class="partners-section">
+            <div class="partners-title">SZERZŐDÖTT PARTNEREK & TÁMOGATÓK</div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    🤝 Legyen a partnerünk, hogy Ön is megjelenhessen mint partnerünk!
                 </div>
-                <div class="form-group">
-                    <label>Képzési mód *</label>
-                    <select>
-                        <option>Válassz</option>
-                    </select>
+                <div class="partner-card">
+                    📢 Hirdetési felület kiadó – Érje el szakmai célközönségünket!
                 </div>
-                <div class="form-group">
-                    <label>Tanulók létszáma *</label>
-                    <select>
-                        <option>Válassz</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Üzenet</label>
-                    <textarea rows="4"></textarea>
-                </div>
-                <p class="form-note">A kapcsolatfelvétellel semmilyen kötelezettséggel nem jár. Az űrlap elküldése után kollégánk egyeztet Önnel a részletekről.</p>
-                <button type="submit" class="submit-btn">Kapcsolatfelvétel elküldése</button>
-            </form>
+            </div>
         </section>
 
     </main>
-
-    <!-- FELUGRÓ ABLAK (Ha van) -->
-    <div id="popup-jegyzokonyv" class="popup-container" style="display: none;">
-        <!-- Popup tartalom -->
-    </div>
 
     <!-- SZABVÁNYOS ZOLTEACH LÁBLÉC -->
     <footer class="site-footer">
@@ -272,7 +579,7 @@
                     <li><a href="diagnosztika.html">Műszaki Diagnosztika & Méréstechnika</a></li>
                     <li><a href="#">Digitális Biztonság & K.</a></li>
                     <li><a href="#">Rendszer-üzemeltetési D.</a></li>
-                    <li><a href="https://youtube.com/@zolteachgaming" target="_blank">Közúti Járműgépész & Szakkutató</a></li>
+                    <li><a href="#">Közúti Járműgépész & Szakkutató</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -286,6 +593,30 @@
             &copy; 2026 ZolTeach™ System. Minden jog fenntartva.
         </div>
     </footer>
+
+    <!-- POPUP ABLAK (Rejtett jövőbeli mérési jegyzőkönyv) -->
+    <div id="popup-jegyzokonyv" class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close" onclick="megzarasPopup()">&times;</span>
+            <h2>Diagnosztikai mérési jegyzőkönyv – Minta</h2>
+            <p>Ez egy bemutató célú, vízjellel ellátott jegyzőkönyv. A teljes verzió az oktatás részeként érhető el.</p>
+            <div style="text-align: center;">
+                <img src="kepek/jegyzokonyv-minta.png" alt="Diagnosztikai jegyzőkönyv minta" class="popup-image" onerror="this.alt='A jegyzőkönyv minta képe hamarosan érkezik.'">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function megnyitPopup() {
+            const popup = document.getElementById('popup-jegyzokonyv');
+            if (popup) popup.style.display = 'flex';
+        }
+
+        function megzarasPopup() {
+            const popup = document.getElementById('popup-jegyzokonyv');
+            if (popup) popup.style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>
