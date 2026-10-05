@@ -511,67 +511,69 @@
                             <label for="email">Email cím *</label>
                             <input id="email" name="email" type="email" required>
                         </div>
-<div class="form-row" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
-    <label style="font-weight: bold; margin-bottom: 5px;">Képzési mód *</label>
+<!-- KÉPZÉSI MÓD SZEKCIÓ -->
+<div class="form-row" style="display: flex; flex-direction: column; gap: 10px; width: 100%; margin-bottom: 20px;">
+    <label style="font-weight: bold; margin-bottom: 5px; color: #ffb703;">Képzési mód *</label>
     
     <div class="radio-group" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; width: 100%;">
         
-        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; background: #2c2c2c; font-size: 14px;">
-            <input type="radio" id="mode_vallalati" name="mode" value="Helyszíni, vállalati oktatás" required style="width: 18px; height: 18px; margin: 0; accent-color: #000;">
+        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #444; border-radius: 4px; cursor: pointer; background: #1e1e24; font-size: 14px; color: #ffb703;">
+            <input type="radio" id="mode_vallalati" name="mode" value="Helyszíni, vállalati oktatás" required style="width: 18px; height: 18px; margin: 0; accent-color: #ffb703;">
             <span>Helyszíni, vállalati oktatás</span>
         </label>
 
-        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; background: #fff; font-size: 14px;">
-            <input type="radio" id="mode_muhely" name="mode" value="ZolTeach műhelyben tartott képzés" style="width: 18px; height: 18px; margin: 0; accent-color: #000;">
+        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #444; border-radius: 4px; cursor: pointer; background: #1e1e24; font-size: 14px; color: #ffb703;">
+            <input type="radio" id="mode_muhely" name="mode" value="ZolTeach műhelyben tartott képzés" style="width: 18px; height: 18px; margin: 0; accent-color: #ffb703;">
             <span>ZolTeach műhelyben tartott képzés</span>
         </label>
 
-        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; background: #fff; font-size: 14px;">
-            <input type="radio" id="mode_vegyes" name="mode" value="Vegyes (helyszíni + műhely)" style="width: 18px; height: 18px; margin: 0; accent-color: #000;">
+        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #444; border-radius: 4px; cursor: pointer; background: #1e1e24; font-size: 14px; color: #ffb703;">
+            <input type="radio" id="mode_vegyes" name="mode" value="Vegyes (helyszíni + műhely)" style="width: 18px; height: 18px; margin: 0; accent-color: #ffb703;">
             <span>Vegyes (helyszíni + műhely)</span>
         </label>
 
-        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; background: #fff; font-size: 14px;">
-            <input type="radio" id="mode_online" name="mode" value="Online elméleti modul" style="width: 18px; height: 18px; margin: 0; accent-color: #000;">
+        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #444; border-radius: 4px; cursor: pointer; background: #1e1e24; font-size: 14px; color: #ffb703;">
+            <input type="radio" id="mode_online" name="mode" value="Online elméleti modul" style="width: 18px; height: 18px; margin: 0; accent-color: #ffb703;">
             <span>Online elméleti modul</span>
         </label>
 
     </div>
 </div>
 
-
-                    <div class="form-row" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
-    <label style="font-weight: bold; margin-bottom: 5px;">Tanulók létszáma *</label>
+<!-- TANULÓK LÉTSZÁMA SZEKCIÓ -->
+<div class="form-row" style="display: flex; flex-direction: column; gap: 10px; width: 100%; margin-bottom: 20px;">
+    <label style="font-weight: bold; margin-bottom: 5px; color: #ffb703;">Tanulók létszáma *</label>
     
-    <div class="radio-group" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; width: 100%;">
+    <div class="radio-group" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; width: 100%;">
         
-        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #555; border-radius: 4px; cursor: pointer; background: #2c2c2c; font-size: 14px;">
-            <input type="radio" id="size_1_5" name="size" value="1–5 fő" required style="width: 18px; height: 18px; margin: 0; accent-color: #fff;">
+        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #444; border-radius: 4px; cursor: pointer; background: #1e1e24; font-size: 14px; color: #ffb703;">
+            <input type="radio" id="size_1_5" name="size" value="1–5 fő" required style="width: 18px; height: 18px; margin: 0; accent-color: #ffb703;">
             <span>1–5 fő</span>
         </label>
 
-        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #555; border-radius: 4px; cursor: pointer; background: #2c2c2c; font-size: 14px;">
-            <input type="radio" id="size_6_10" name="size" value="6–10 fő" style="width: 18px; height: 18px; margin: 0; accent-color: #fff;">
+        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #444; border-radius: 4px; cursor: pointer; background: #1e1e24; font-size: 14px; color: #ffb703;">
+            <input type="radio" id="size_6_10" name="size" value="6–10 fő" style="width: 18px; height: 18px; margin: 0; accent-color: #ffb703;">
             <span>6–10 fő</span>
         </label>
 
-        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #555; border-radius: 4px; cursor: pointer; background: #2c2c2c; font-size: 14px;">
-            <input type="radio" id="size_11_20" name="size" value="11–20 fő" style="width: 18px; height: 18px; margin: 0; accent-color: #fff;">
+        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #444; border-radius: 4px; cursor: pointer; background: #1e1e24; font-size: 14px; color: #ffb703;">
+            <input type="radio" id="size_11_20" name="size" value="11–20 fő" style="width: 18px; height: 18px; margin: 0; accent-color: #ffb703;">
             <span>11–20 fő</span>
         </label>
 
-        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #555; border-radius: 4px; cursor: pointer; background: #2c2c2c; font-size: 14px;">
-            <input type="radio" id="size_20_plus" name="size" value="20+ fő" style="width: 18px; height: 18px; margin: 0; accent-color: #fff;">
+        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #444; border-radius: 4px; cursor: pointer; background: #1e1e24; font-size: 14px; color: #ffb703;">
+            <input type="radio" id="size_20_plus" name="size" value="20+ fő" style="width: 18px; height: 18px; margin: 0; accent-color: #ffb703;">
             <span>20+ fő</span>
         </label>
 
-        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #555; border-radius: 4px; cursor: pointer; background: #2c2c2c; font-size: 14px;">
-            <input type="radio" id="size_egyeb" name="size" value="Egyéb" style="width: 18px; height: 18px; margin: 0; accent-color: #fff;">
+        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #444; border-radius: 4px; cursor: pointer; background: #1e1e24; font-size: 14px; color: #ffb703;">
+            <input type="radio" id="size_egyeb" name="size" value="Egyéb" style="width: 18px; height: 18px; margin: 0; accent-color: #ffb703;">
             <span>Egyéb</span>
         </label>
 
     </div>
 </div>
+
 
 
                         <div class="form-row">
