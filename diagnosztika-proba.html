@@ -540,17 +540,39 @@
 </div>
 
 
-                        <div class="form-row">
-                            <label for="size">Tanulók létszáma *</label>
-                            <select id="size" name="size" required>
-                                <option value="">Válassz</option>
-                                <option>1–5 fő</option>
-                                <option>6–10 fő</option>
-                                <option>11–20 fő</option>
-                                <option>20+ fő</option>
-                                <option>Egyéb</option>
-                            </select>
-                        </div>
+                    <div class="form-row" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+    <label style="font-weight: bold; margin-bottom: 5px;">Tanulók létszáma *</label>
+    
+    <div class="radio-group" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; width: 100%;">
+        
+        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #555; border-radius: 4px; cursor: pointer; background: #2c2c2c; font-size: 14px;">
+            <input type="radio" id="size_1_5" name="size" value="1–5 fő" required style="width: 18px; height: 18px; margin: 0; accent-color: #fff;">
+            <span>1–5 fő</span>
+        </label>
+
+        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #555; border-radius: 4px; cursor: pointer; background: #2c2c2c; font-size: 14px;">
+            <input type="radio" id="size_6_10" name="size" value="6–10 fő" style="width: 18px; height: 18px; margin: 0; accent-color: #fff;">
+            <span>6–10 fő</span>
+        </label>
+
+        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #555; border-radius: 4px; cursor: pointer; background: #2c2c2c; font-size: 14px;">
+            <input type="radio" id="size_11_20" name="size" value="11–20 fő" style="width: 18px; height: 18px; margin: 0; accent-color: #fff;">
+            <span>11–20 fő</span>
+        </label>
+
+        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #555; border-radius: 4px; cursor: pointer; background: #2c2c2c; font-size: 14px;">
+            <input type="radio" id="size_20_plus" name="size" value="20+ fő" style="width: 18px; height: 18px; margin: 0; accent-color: #fff;">
+            <span>20+ fő</span>
+        </label>
+
+        <label style="display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #555; border-radius: 4px; cursor: pointer; background: #2c2c2c; font-size: 14px;">
+            <input type="radio" id="size_egyeb" name="size" value="Egyéb" style="width: 18px; height: 18px; margin: 0; accent-color: #fff;">
+            <span>Egyéb</span>
+        </label>
+
+    </div>
+</div>
+
 
                         <div class="form-row">
                             <label for="message">Üzenet</label>
