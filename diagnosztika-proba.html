@@ -658,6 +658,23 @@
             if (popup) popup.style.display = 'none';
         }
     </script>
-
+<!-- ADATKEZELÉSI POPUP ABLAK -->
+<div id="popup-adatkezeles" class="popup-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10000; justify-content: center; align-items: center;">
+    <div class="popup-content" style="background: #15181e; border: 1px solid #ffb703; width: 90%; max-width: 600px; padding: 30px; border-radius: 12px; position: relative; color: #fff; max-height: 80vh; overflow-y: auto;">
+        <span class="popup-close" onclick="bezárAdatkezeles()" style="position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #ffb703;">&times;</span>
+        
+        <h2 style="font-family: 'Exo 2', sans-serif; color: #ccff00; margin-bottom: 20px; font-size: 1.4rem;">Adatkezelési Tájékoztató (Rövid kivonat)</h2>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #d1d5db; margin-bottom: 15px;">
+            A ZolTeach™ System a kapcsolatfelvételi űrlapon megadott adatait (név, email cím, telefonszám) kizárólag a szakmai egyeztetés és az ajánlatadás céljából kezeli. Semmilyen érzékeny adatot nem gyűjtünk, az adatokat harmadik fél részére nem adjuk át.
+        </p>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: #d1d5db; margin-bottom: 25px;">
+            A kapcsolatfelvétel semmilyen kötelezettséggel nem jár. Bármikor kérheti adatai törlését az info@zolteach.hu e-mail címen.
+        </p>
+        
+        <div style="text-align: center;">
+            <button type="button" onclick="bezárAdatkezeles()" style="background-color: #00ff00; color: #0b0d10; border: none; padding: 12px 25px; border-radius: 6px; font-weight: 700; cursor: pointer; font-family: 'Exo 2', sans-serif; font-size: 1rem;">Elfogadom és bezárom</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
